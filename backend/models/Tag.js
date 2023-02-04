@@ -7,6 +7,7 @@ Tag.init({
     name:{
         type: Sequelize.STRING,
         unique: true,
+        allowNull: false,
     },
     color:{
         type: Sequelize.STRING,
@@ -14,7 +15,7 @@ Tag.init({
     created_at: Sequelize.DATE,
     updated_at: Sequelize.DATE,
 }, {
-    tableName: "list",
+    tableName: "tag",
     sequelize
 })
 
