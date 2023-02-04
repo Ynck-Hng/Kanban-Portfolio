@@ -10,17 +10,11 @@ const {bodySanitizer} = require("./app/middlewares/bodySanitizer");
 const router = require("./app/router/router");
 
 app.use(cors());
-
 app.use(bodyParser.none());
-
 app.use(express.urlencoded({extended: true}));
-
 app.use(bodySanitizer);
-
 app.use(router);
-
 app.use(notFound);
-
 app.use(errorCollector);
 
 app.listen(PORT, () => {

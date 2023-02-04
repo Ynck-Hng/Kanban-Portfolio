@@ -132,7 +132,7 @@ const cardController = {
         }
 
         const findTagInCard = findCard.tags.find(tag => tag.id === Number(tagId));
-        console.log(findTagInCard);
+
         if(!findTagInCard){
             return res.status(404).json("Cette carte ne possède pas/plus la catégorie sélectionnée...")
         }

@@ -3,7 +3,6 @@ exports.errorCatcher = (fn) => { return (req,res,next) => {
 }}
 
 exports.errorCollector = (err,req,res,next) => {
-    console.log(err);
     const status = err.status || 500;
     res.format({
         "text/html": res.status(status).json(err.message)
