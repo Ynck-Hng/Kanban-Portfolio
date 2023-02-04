@@ -7,9 +7,6 @@ List.init({
     name:{
         type: Sequelize.STRING,
         unique: true,
-        validate: {
-            isAlpha: true,
-        }
     },
     created_at: Sequelize.DATE,
     updated_at: Sequelize.DATE,

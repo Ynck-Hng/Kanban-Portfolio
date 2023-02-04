@@ -6,11 +6,16 @@ const bodyParser = multer();
 const cors = require("cors");
 const PORT = process.env.PORT;
 const {errorCollector, notFound} = require("./app/middlewares/errorHandlers");
+const {bodySanitizer} = require("./app/middlewares/bodySanitizer");
 const router = require("./app/router/router");
 
 app.use(cors());
 
 app.use(bodyParser.none());
+
+app.use(express.urlencoded({extended: true}));
+
+app.use(bodySanitizer);
 
 app.use(router);
 

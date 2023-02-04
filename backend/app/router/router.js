@@ -4,10 +4,6 @@ const listRoute = require("./routes/listRoute");
 const cardRoute = require("./routes/cardRoute");
 const tagRoute = require("./routes/tagRoute");
 
-router.get("/", (req,res) => {
-    res.send("oui");
-})
-
 router.use("/lists", listRoute);
 
 module.exports = router;

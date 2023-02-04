@@ -7,9 +7,6 @@ Tag.init({
     name:{
         type: Sequelize.STRING,
         unique: true,
-        validate: {
-            isAlpha: true,
-        }
     },
     color:{
         type: Sequelize.STRING,

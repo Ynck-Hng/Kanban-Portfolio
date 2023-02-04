@@ -1,4 +1,4 @@
-const sanitizer = require("sanitize");
+const sanitizer = require("sanitizer");
 
 exports.bodySanitizer = (req,res,next) => {
     if(req.body){
@@ -7,4 +7,4 @@ exports.bodySanitizer = (req,res,next) => {
         }
     }
     next();
-}
+};

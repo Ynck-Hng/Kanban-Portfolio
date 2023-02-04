@@ -4,7 +4,9 @@ const listController = require("./../../controllers/listController");
 
 // Currently on route /lists
 
-router.get("/", listController.findAllList);
+router.get("/", listController.findAllLists);
+router.post("/", listController.createOnelist);
+router.get("/:listId", listController.findOneList);
 
 
 module.exports = router;
