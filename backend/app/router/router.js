@@ -8,4 +8,6 @@ router.get("/", (req,res) => {
     res.send("oui");
 })
 
+router.use("/lists", listRoute);
+
 module.exports = router;

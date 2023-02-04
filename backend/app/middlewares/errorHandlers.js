@@ -11,7 +11,7 @@ exports.errorCollector = (err,req,res,next) => {
 }
 
 exports.notFound = (req,res,next) => {
-    const err = new Error = ("404 Not found");
+    const err = new Error("404 Not found");
     err.status(404);
     next(err);
 }

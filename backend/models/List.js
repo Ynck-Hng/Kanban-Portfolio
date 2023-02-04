@@ -11,9 +11,6 @@ List.init({
             isAlpha: true,
         }
     },
-    color:{
-        type: Sequelize.STRING,
-    },
     created_at: Sequelize.DATE,
     updated_at: Sequelize.DATE,
 }, {
