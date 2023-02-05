@@ -56,6 +56,30 @@ const listModule = {
 
     // CRUD
 
+    findAllLists: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    createList: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    patchList: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
     deleteList: async() => {
         try{
 

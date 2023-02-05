@@ -10,6 +10,38 @@ tagTemplate.innerHTML = `
 
 const tagModule = {
     
-    
+    // CRUD
+
+    findAllTags: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    createTag: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    patchTag: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    deleteTag: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    }
 
 }

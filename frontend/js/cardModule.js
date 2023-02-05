@@ -41,4 +41,38 @@ const cardModule = {
     },
 
 
+    // CRUD
+
+    findAllCards: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    createCard: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    patchCard: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    },
+
+    deleteCard: async() => {
+        try{
+
+        }catch(error){
+            console.error(error.message);
+        }
+    }
+
 }
