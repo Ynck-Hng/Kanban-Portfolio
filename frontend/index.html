@@ -23,12 +23,10 @@
             <div class="header__title">
                 Kanban
             </div>
+            <a href="#" class="create__list--button"> + </a>
         </header>
 
         <main>
-
-            <a href="#" class="create__list--button"> + </a>
-
             <div class="main__container--lists">
                 <!-- Lists here -->
                 <article class="list__container" dataset-list-id="">
@@ -37,8 +35,14 @@
                             <h2> Title list 1</h2>
                         </div>
                         
-                        <div class="list__header--delete">
-                            <a href="#"> x </a>
+                        
+                        <div class="list__buttons">
+                            <div class="list__header--create">
+                                <a href="#" class="create__card--button"> + </a>
+                            </div>
+                            <div class="list__header--delete">
+                                <a href="#"> x </a>
+                            </div>
                         </div>
                     </div>
 
@@ -129,22 +133,25 @@
                 </form>
             </div>
             
-            <div class="card__form--container">
+            <div class="card__form--container hidden">
                 <form class="create__card--form">
                     <input type="hidden" name="list_id" value=""> 
                     <h2 class="card__form--title"> Add card </h2>
                     <input type="text" name="name" class="card__name--input" placeholder="Nom de la carte...">
+                    <input type="color" name="color" class="card__color--input">
                     <button type="submit" class="card__form--button submit__button--form"> Create </button>
                 </form>
             </div>
             
-            <form class="create__tag--form">
-                <h2 class="tag__form--title"> Add tag </h2>
-                <input type="hidden" name="card_id" value=""> 
-                <input type="text" name="name" class="tag__name--input" placeholder="Nom de la catégorie...">
-                <input type="color">
-                <button type="submit" class="tag__form--button submit__button--form"> Create </button>
-            </form>
+            <div class="tag__form--container hidden">
+                <form class="create__tag--form">
+                    <h2 class="tag__form--title"> Add tag </h2>
+                    <input type="hidden" name="card_id" value="">
+                    <input type="text" name="name" class="tag__name--input" placeholder="Nom de la catégorie...">
+                    <input type="color" name="color" class="tag__color--input">
+                    <button type="submit" class="tag__form--button submit__button--form"> Create </button>
+                </form>
+            </div>
 
 
 

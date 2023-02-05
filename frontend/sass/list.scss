@@ -18,6 +18,21 @@
     background-color: orange;
 }
 
+.list__buttons{
+    @include mixins.center-element;
+    position: absolute;
+    right: 1em;
+}
+
+.list__header--create{
+    @include mixins.center-element;
+    padding: 0.2em 0.4em;
+    background-color: greenyellow;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
 .list__header--delete{
     @include mixins.center-element;
     background-color: red;
@@ -28,12 +43,9 @@
 }
 
 .list__header--title{
-    padding: 2em 0;
-}
-
-.list__header--delete{
-    position: absolute;
-    right: 1em;
+    padding: 1em 0;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .overflow-y{

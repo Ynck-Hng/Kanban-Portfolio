@@ -19,3 +19,45 @@
 .tag__name{
     color: black;
 }
+
+.card__button--delete{
+    @include mixins.center-element;
+    background-color: red;
+    padding: 0.2em 0.4em;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.create__tag--form{
+    position: absolute;
+    @include mixins.center-element;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    width: 40%;
+    height: 40%;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+.tag__form--title{
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: solid 1px lightgray;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.tag__name--input{
+    margin: 4em 0 2em 0;
+    font-size: 1.2rem;
+}
+
+.tag__color--input{
+    margin-bottom: 1em;
+}

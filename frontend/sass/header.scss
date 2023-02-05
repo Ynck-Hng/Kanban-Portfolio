@@ -5,4 +5,10 @@ header{
     padding: 1em 0;
     border: solid 1px lightgray;
     @include mixins.center-element;
+    position: relative;
+}
+
+.header__title{
+    font-size: 2rem;
+    font-weight: bold;
 }
