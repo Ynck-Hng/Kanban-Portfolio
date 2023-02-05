@@ -6,6 +6,7 @@ const app = {
 
     addListenerToActions: () => {
 
+        // OPEN / CLOSE FORMS BUTTON 
         const showListForm = document.querySelector(".create__list--button");
         showListForm.addEventListener("click", listModule.showCreateListForm);
 
@@ -14,6 +15,9 @@ const app = {
 
         const cardFormClose = document.querySelector(".card__form--close");
         cardFormClose.addEventListener("click", cardModule.hideCreateCardForm);
+    
+        const tagFormClose = document.querySelector(".tag__form--close");
+        tagFormClose.addEventListener("click", tagModule.hideCreateTagForm);
     },
 
 }

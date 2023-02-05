@@ -89,16 +89,32 @@ header {
   font-weight: bold;
 }
 
-.create__list--button {
+.header__buttons {
   position: absolute;
   right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.create__list--button, .create__tag--button {
   background-color: greenyellow;
   padding: 0.8em 1em;
   font-weight: bold;
   border-radius: 5px;
+  margin-right: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.create__tag--button {
+  background-color: lightpink;
+  margin: 0;
+}
+
+.button__list--title {
+  margin-right: 1em;
 }
 
 main {

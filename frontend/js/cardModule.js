@@ -14,6 +14,11 @@ cardTemplate.innerHTML = `
      
 
         <div class="card__buttons">
+
+            <div class="card__button--add">
+                <a href="#"> + </a>
+            </div>
+
             <div class="card__button--delete">
                 <a href="#"> x </a>
             </div>

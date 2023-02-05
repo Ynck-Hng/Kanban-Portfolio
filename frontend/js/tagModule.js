@@ -10,6 +10,14 @@ tagTemplate.innerHTML = `
 
 const tagModule = {
     
+    showCreateTagForm: () => {
+        // TODO
+    },
+
+    hideCreateTagForm: () => {
+        // TODO
+    },
+
     // CRUD
 
     findAllTags: async() => {
