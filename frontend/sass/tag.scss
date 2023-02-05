@@ -61,3 +61,14 @@
 .tag__color--input{
     margin-bottom: 1em;
 }
+
+.tag__form--close{
+    align-self: flex-end;
+    margin-right: 1em;
+    background-color: white;
+    border: solid 1px black;
+    padding: 0.2em 0.4em;
+    border-radius: 50%;
+    color: black;
+    @include mixins.center-element;
+}

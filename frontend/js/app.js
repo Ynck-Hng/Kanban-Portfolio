@@ -1,6 +1,20 @@
 const app = {
 
-    
+    init: () => {
+        app.addListenerToActions();
+    },
+
+    addListenerToActions: () => {
+
+        const showListForm = document.querySelector(".create__list--button");
+        showListForm.addEventListener("click", listModule.showCreateListForm);
+
+        const listFormClose = document.querySelector(".list__form--close");
+        listFormClose.addEventListener("click", listModule.hideCreateListForm);
+
+        const cardFormClose = document.querySelector(".card__form--close");
+        cardFormClose.addEventListener("click", cardModule.hideCreateCardForm);
+    },
 
 }
 
@@ -26,3 +40,4 @@ for(let list of lists){
     }
 }
 
+document.addEventListener("DOMContentLoaded", app.init);

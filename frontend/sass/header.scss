@@ -12,3 +12,13 @@ header{
     font-size: 2rem;
     font-weight: bold;
 }
+
+.create__list--button{
+    position: absolute;
+    right: 1em;
+    background-color: greenyellow;
+    padding: 0.8em 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    @include mixins.center-element;
+}

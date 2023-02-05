@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/app.js" defer></script>
-    <script src="./js/listDOM.js" defer></script>
-    <script src="./js/cardDOM.js" defer></script>
-    <script src="./js/tagDOM.js" defer></script>
+    <script src="./js/tagModule.js" defer></script>
+    <script src="./js/cardModule.js" defer></script>
+    <script src="./js/listModule.js" defer></script>
 
     <title>Document</title>
 </head>
@@ -127,6 +127,7 @@
             
             <div class="list__form--container hidden">
                 <form class="create__list--form">
+                    <a href="#" class="list__form--close"> x </a>
                     <h2 class="list__form--title"> Add list </h2>
                     <input type="text" name="name" class="list__name--input" placeholder="Nom de la liste...">
                     <button type="submit" class="list__form--button submit__button--form"> Create </button>
@@ -135,6 +136,7 @@
             
             <div class="card__form--container hidden">
                 <form class="create__card--form">
+                    <a href="#" class="card__form--close"> x </a>
                     <input type="hidden" name="list_id" value=""> 
                     <h2 class="card__form--title"> Add card </h2>
                     <input type="text" name="name" class="card__name--input" placeholder="Nom de la carte...">
@@ -145,6 +147,7 @@
             
             <div class="tag__form--container hidden">
                 <form class="create__tag--form">
+                    <a href="#" class="tag__form--close"> x </a>
                     <h2 class="tag__form--title"> Add tag </h2>
                     <input type="hidden" name="card_id" value="">
                     <input type="text" name="name" class="tag__name--input" placeholder="Nom de la catégorie...">

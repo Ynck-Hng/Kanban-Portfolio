@@ -89,6 +89,18 @@ header {
   font-weight: bold;
 }
 
+.create__list--button {
+  position: absolute;
+  right: 1em;
+  background-color: greenyellow;
+  padding: 0.8em 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 main {
   width: 100%;
   min-height: 100vh;
@@ -209,6 +221,19 @@ main {
   border-radius: 5px;
 }
 
+.list__form--close {
+  align-self: flex-end;
+  margin-right: 1em;
+  background-color: white;
+  border: solid 1px black;
+  padding: 0.2em 0.4em;
+  border-radius: 50%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .cards__container {
   width: 100%;
   display: flex;
@@ -281,6 +306,19 @@ main {
   margin-bottom: 1em;
 }
 
+.card__form--close {
+  align-self: flex-end;
+  margin-right: 1em;
+  background-color: white;
+  border: solid 1px black;
+  padding: 0.2em 0.4em;
+  border-radius: 50%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .tag__container {
   position: absolute;
   top: 0;
@@ -347,6 +385,19 @@ main {
 
 .tag__color--input {
   margin-bottom: 1em;
+}
+
+.tag__form--close {
+  align-self: flex-end;
+  margin-right: 1em;
+  background-color: white;
+  border: solid 1px black;
+  padding: 0.2em 0.4em;
+  border-radius: 50%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
