@@ -1,0 +1,21 @@
+.tag__container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.tag{
+    border: solid 2px;
+    border-color: gray;
+    margin-left: 3px;
+    margin-top: 3px;
+    font-size: 14px;
+    padding: 2px 0.4em;
+    border-radius: 5px;
+}
+
+.tag__name{
+    color: black;
+}

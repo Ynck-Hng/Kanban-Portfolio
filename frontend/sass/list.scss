@@ -1,0 +1,32 @@
+.list__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 17em;
+    border: solid 2px black;
+    margin: 1em 0.5em;
+    background-color: white;
+    height: 100%;
+}
+
+.list__header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: orange;
+}
+
+.list__header--title{
+    padding: 2em 0;
+}
+
+.list__header--delete{
+    position: absolute;
+    right: 1em;
+}
+
+.overflow-y{
+    overflow-y: scroll;
+}

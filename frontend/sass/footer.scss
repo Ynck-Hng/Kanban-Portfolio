@@ -1,0 +1,8 @@
+@use "mixins.scss";
+
+footer{
+    width: 100%;
+    @include mixins.center-element;
+    position: relative;
+    bottom: 0;
+}

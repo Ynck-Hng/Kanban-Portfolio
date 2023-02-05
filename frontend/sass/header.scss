@@ -1,0 +1,8 @@
+@use "mixins.scss";
+
+header{
+    width: 100%;
+    padding: 1em 0;
+    border: solid 1px lightgray;
+    @include mixins.center-element;
+}

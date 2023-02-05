@@ -1,0 +1,20 @@
+main {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1em 0;
+    background-color: red;
+    position: relative;
+    overflow: auto;
+    overflow-y: hidden;
+}
+
+.main__container--lists{
+    display: inline-flex;
+    white-space: nowrap;
+    position: absolute;
+    left: 0;
+}
+
+@import "list.scss";
+@import "card.scss";
+@import "tag.scss";

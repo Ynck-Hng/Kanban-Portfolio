@@ -52,4 +52,130 @@ table {
   border-spacing: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  padding: 1em 0;
+  border: solid 1px lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1em 0;
+  background-color: red;
+  position: relative;
+  overflow: auto;
+  overflow-y: hidden;
+}
+
+.main__container--lists {
+  display: inline-flex;
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+}
+
+.list__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 17em;
+  border: solid 2px black;
+  margin: 1em 0.5em;
+  background-color: white;
+  height: 100%;
+}
+
+.list__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: orange;
+}
+
+.list__header--title {
+  padding: 2em 0;
+}
+
+.list__header--delete {
+  position: absolute;
+  right: 1em;
+}
+
+.overflow-y {
+  overflow-y: scroll;
+}
+
+.cards__container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 6em;
+  width: 80%;
+  margin-top: 1em;
+  border: solid 2px black;
+}
+
+.card__buttons {
+  position: absolute;
+  right: 1em;
+  display: flex;
+}
+
+.tag__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+}
+
+.tag {
+  border: solid 2px;
+  border-color: gray;
+  margin-left: 3px;
+  margin-top: 3px;
+  font-size: 14px;
+  padding: 2px 0.4em;
+  border-radius: 5px;
+}
+
+.tag__name {
+  color: black;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

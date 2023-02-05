@@ -1,0 +1,27 @@
+@use "mixins.scss";
+
+.cards__container{
+    width: 100%;
+    @include mixins.center-element;
+    flex-direction: column;
+    padding-bottom: 1em;
+
+}
+
+.card{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 6em;
+    width: 80%;
+    margin-top: 1em;
+    border: solid 2px black;
+}
+
+.card__buttons{
+    position: absolute;
+    right: 1em;
+    display: flex;
+}

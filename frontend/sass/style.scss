@@ -1,1 +1,16 @@
 @import "reset.scss";
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    font-family: sans-serif;
+}
+
+@import "header.scss";
+
+@import "main.scss";
+
+@import "footer.scss";
