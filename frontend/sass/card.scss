@@ -23,5 +23,13 @@
 .card__buttons{
     position: absolute;
     right: 1em;
-    display: flex;
+}
+
+.card__button--delete{
+    @include mixins.center-element;
+    background-color: red;
+    padding: 0.2em 0.4em;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
 }

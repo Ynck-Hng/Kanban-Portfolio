@@ -1,3 +1,5 @@
+@use "mixins.scss";
+
 main {
     width: 100%;
     min-height: 100vh;
@@ -13,6 +15,16 @@ main {
     white-space: nowrap;
     position: absolute;
     left: 0;
+}
+
+.create__list--button{
+    position: absolute;
+    right: 1em;
+    background-color: greenyellow;
+    padding: 0.8em 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    @include mixins.center-element;
 }
 
 @import "list.scss";

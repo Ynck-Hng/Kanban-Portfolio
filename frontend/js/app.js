@@ -1,3 +1,10 @@
+const app = {
+
+    
+
+}
+
+
 console.log(window.innerHeight);
 
 const lists = document.querySelectorAll(".list__container");
@@ -14,7 +21,7 @@ for(let list of lists){
     console.log(listsContainer.offsetHeight);
     if(list.offsetHeight >= window.innerHeight){
         console.log("oui");
-        list.style.height = `${window.innerHeight - 50}px`;
+        list.style.height = `${window.innerHeight - 75}px`;
         list.classList.add("overflow-y");
     }
 }

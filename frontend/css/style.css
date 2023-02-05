@@ -61,6 +61,15 @@ body {
   font-family: sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+
 header {
   width: 100%;
   padding: 1em 0;
@@ -87,6 +96,18 @@ main {
   left: 0;
 }
 
+.create__list--button {
+  position: absolute;
+  right: 1em;
+  background-color: greenyellow;
+  padding: 0.8em 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .list__container {
   display: flex;
   flex-direction: column;
@@ -107,6 +128,17 @@ main {
   background-color: orange;
 }
 
+.list__header--delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  padding: 0.2em 0.4em;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
 .list__header--title {
   padding: 2em 0;
 }
@@ -118,6 +150,49 @@ main {
 
 .overflow-y {
   overflow-y: scroll;
+}
+
+.create__list--form {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: white;
+  width: 40%;
+  height: 40%;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+.list__form--title {
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: solid 1px lightgray;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.list__name--input {
+  margin: 4em 0;
+  font-size: 1.2rem;
+}
+
+.submit__button--form {
+  background-color: black;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em 1.5em;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .cards__container {
@@ -144,7 +219,17 @@ main {
 .card__buttons {
   position: absolute;
   right: 1em;
+}
+
+.card__button--delete {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  padding: 0.2em 0.4em;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .tag__container {

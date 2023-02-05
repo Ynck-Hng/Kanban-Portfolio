@@ -1,44 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/app.js" defer></script>
-    <script src="./js/listDOM.js" defer></script>
-    <script src="./js/cardDOM.js" defer></script>
-    <script src="./js/tagDOM.js" defer></script>
+/*
 
-    <title>Document</title>
-</head>
-<body>
-
-    <div class="container">
-        <header>
-            <div class="header__logo">
-                <img src="">
-            </div>
-
-            <div class="header__title">
-                Kanban
-            </div>
-        </header>
-
-        <main>
-
-            <a href="#" class="create__list--button"> + </a>
-
-            <div class="main__container--lists">
-                <!-- Lists here -->
+<!-- Lists here -->
                 <article class="list__container" dataset-list-id="">
                     <div class="list__header">
                         <div class="list__header--title">
                             <h2> Title list 1</h2>
                         </div>
-                        
+
                         <div class="list__header--delete">
-                            <a href="#"> x </a>
+                            <a href="#"> Delete list </a>
                         </div>
                     </div>
 
@@ -60,8 +30,12 @@
                             </div>
 
                             <div class="card__buttons">
+                                <div class="card__button--edit">
+                                    <a href="#"> Edit </a>
+                                </div>
+
                                 <div class="card__button--delete">
-                                    <a href="#"> x </a>
+                                    <a href="#"> Delete </a>
                                 </div>
                             </div>
                         </section>
@@ -117,40 +91,25 @@
                     </div>
                     <!-- End list -->
                 </article>
-                
-            </div>
-
-            
-            <div class="list__form--container hidden">
-                <form class="create__list--form">
-                    <h2 class="list__form--title"> Add list </h2>
-                    <input type="text" name="name" class="list__name--input" placeholder="Nom de la liste...">
-                    <button type="submit" class="list__form--button submit__button--form"> Create </button>
-                </form>
-            </div>
-            
-            <div class="card__form--container">
-                <form class="create__card--form">
-                    <input type="hidden" name="list_id" value=""> 
-                    <h2 class="card__form--title"> Add card </h2>
-                    <input type="text" name="name" class="card__name--input" placeholder="Nom de la carte...">
-                    <button type="submit" class="card__form--button submit__button--form"> Create </button>
-                </form>
-            </div>
-            
-            <form class="create__tag--form">
-                <h2 class="tag__form--title"> Add tag </h2>
-                <input type="hidden" name="card_id" value=""> 
-                <input type="text" name="name" class="tag__name--input" placeholder="Nom de la catégorie...">
-                <input type="color">
-                <button type="submit" class="tag__form--button submit__button--form"> Create </button>
-            </form>
 
 
+class TagDOM extends HTMLElement{
+    constructor(){
+        super();
+        this.attachShadow({mode: "open"});
+        this.shadowRoot.appendChild(tagTemplate.content.cloneNode(true));
+    }
 
-        </main>
+    connectedCallback(){
+        window.addEventListener("click", (event) => {
+            console.log(event);
+        })
+    }
 
-       <!-- <footer> Ynck-Hng Github </footer> -->
-    </div>
-</body>
-</html>
+}
+
+const main = document.querySelector("main");
+const test = new TagDOM();
+main.append(test);
+
+*/
