@@ -40,7 +40,6 @@ const app = {
             for(let list of json){
                 listModule.insertListInHtml(list);
                 for(let card of list.cards){
-                    console.log(card);
                     cardModule.insertCardInHtml(card);
                 }
             }

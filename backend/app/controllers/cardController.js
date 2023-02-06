@@ -30,7 +30,7 @@ const cardController = {
     }),
 
     createOneCard: errorCatcher(async (req,res) => {
-        const {name, color} = req.body;
+        const {name, color, list_id} = req.body;
         
         if(!name){
             return res.status(400).json("Le nom est nécessaire pour créer une carte.");
@@ -40,7 +40,7 @@ const cardController = {
             color = "#FFF";
         }
 
-        const newCard = await Card.create({name, color});
+        const newCard = await Card.create({name, color, list_id});
 
         if(!newCard){
             return res.status(500).json("Une erreur s'est produite...");

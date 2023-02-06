@@ -6,7 +6,6 @@ class Card extends Sequelize.Model{}
 Card.init({
     name:{
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false,
     },
     color: {

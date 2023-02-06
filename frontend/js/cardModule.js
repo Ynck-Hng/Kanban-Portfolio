@@ -11,7 +11,6 @@ cardTemplate.innerHTML = `
             </div>
         </div>
 
- 
         <div class="card__content">
                 <div class="card__title--container"> 
                     <h3 class="card__title"> Card 1 </h3>
@@ -72,6 +71,7 @@ const cardModule = {
     // Creating Card
 
     showCreateCardForm: (event) => {
+        event.preventDefault();
         const createCardForm = document.querySelector(".card__form--container");
         createCardForm.classList.remove("hidden");
         const parentList = event.target.closest(".list__container");
@@ -79,7 +79,8 @@ const cardModule = {
         createCardForm.querySelector("input[name='list_id']").value = parentListId;
     },
 
-    hideCreateCardForm: () => {
+    hideCreateCardForm: (event) => {
+        event.preventDefault();
         const createCardForm = document.querySelector(".card__form--container");
         createCardForm.classList.add("hidden");
     },
@@ -89,9 +90,20 @@ const cardModule = {
 
     createCard: async(event) => {
         event.preventDefault();
-        console.log(event);
+        const formData = new FormData(event.target);
         try{
+            const response = await fetch(`${utilsModule.base_url}/cards`, {
+                method: "POST",
+                body: formData,
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            cardModule.insertCardInHtml(json);
+            event.target.parentElement.classList.add("hidden");
+            event.target.reset();
         }catch(error){
             console.error(error.message);
         }

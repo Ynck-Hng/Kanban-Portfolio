@@ -4,14 +4,14 @@ DROP TABLE IF EXISTS "list", "card", "tag", "card_has_tag";
 
 CREATE TABLE IF NOT EXISTS "list"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" VARCHAR(50) NOT NULL UNIQUE,
+    "name" VARCHAR(50) NOT NULL,
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE TABLE IF NOT EXISTS "card"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "name" VARCHAR(50) NOT NULL UNIQUE,
+    "name" VARCHAR(50) NOT NULL,
     "color" VARCHAR(50) DEFAULT '#000',
     "list_id" INT REFERENCES "list"("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
@@ -39,11 +39,11 @@ INSERT INTO "card" ("name", "color", "list_id") VALUES
     ('Devoirs', '#F0F', 1), 
     ('Trouver un nouveau projet', '#44bcd8', 1),
     ('Ajouts de nouvelles fonctionnalités', '#F0F', 2),
-    ('Finir Kanban', '#FFF', 4),
-    ('Création de liste', '#FFF', 3),
+    ('Finir Kanban', '#000', 4),
+    ('Création de liste', '#000', 3),
     ('Test de l''api', '#FF0000', 3),
     ('Modifier le nom d''une liste', '#FF8000', 3),
-    ('Mise à jour VSC', '#FFF', 1);
+    ('Mise à jour VSC', '#000', 1);
 
 INSERT INTO "tag"("name", "color") VALUES 
     ('API', '#800080'),

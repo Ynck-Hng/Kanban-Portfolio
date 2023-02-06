@@ -6,7 +6,6 @@ class List extends Sequelize.Model{}
 List.init({
     name:{
         type: Sequelize.STRING,
-        unique: true,
         allowNull: false,
     },
     created_at: Sequelize.DATE,

@@ -49,13 +49,15 @@ const listModule = {
 
     // Creating List
 
-    showCreateListForm: () => {
+    showCreateListForm: (event) => {
+        event.preventDefault();
         const listForm = document.querySelector(".list__form--container");
         listForm.classList.remove("hidden");
 
     },
 
-    hideCreateListForm: () => {
+    hideCreateListForm: (event) => {
+        event.preventDefault();
         const listForm = document.querySelector(".list__form--container");
         listForm.classList.add("hidden");
     },
@@ -81,6 +83,7 @@ const listModule = {
 
             listModule.insertListInHtml(json);
             event.target.parentElement.classList.add("hidden");
+            event.target.reset();
         }catch(error){
             console.error(error.message);
         }
@@ -89,15 +92,17 @@ const listModule = {
     // Show or Hide patch list
 
     showPatchList: (event) => {
+        event.preventDefault();
         event.target.classList.add("hidden");
         event.target.nextElementSibling.classList.remove("hidden");
         event.target.nextElementSibling.querySelector("input[name='name']").select();
     },
 
     hidePatchList: (event) => {
-        event.target.textContent = "";
-        event.target.value = "";
-        event.target.closest("form").classList.add("hidden");
+        event.preventDefault();
+        const listNameForm = event.target.closest("form");
+        listNameForm.reset();
+        listNameForm.classList.add("hidden");
         const listName = event.target.closest(".list__container").querySelector("h2");
         listName.classList.remove("hidden");
     },
@@ -115,7 +120,7 @@ const listModule = {
             
             const json = await response.json();
             
-            if(!response.ok) throw json;
+            if(!response.ok) throw alert(json);
             const listName = event.target.parentElement.querySelector("h2");
             listName.textContent = json.name;
             listName.classList.remove("hidden");
