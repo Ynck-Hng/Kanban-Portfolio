@@ -6,6 +6,9 @@ listTemplate.innerHTML = `
                     <div class="list__header">
                         <div class="list__header--title">
                             <h2> Title list 1</h2>
+                            <form class="patch__list--name hidden">
+                                <input type="text" name="name" placeholder="Nom...">
+                            </form>
                         </div>
                         
                         
@@ -33,23 +36,26 @@ const listModule = {
         const listClone = document.importNode(listTemplate.content, true);
         listClone.querySelector(".list__container").dataset.listId = listData.id;
         listClone.querySelector("h2").textContent = listData.name;
+        listClone.querySelector("h2").addEventListener("dblclick", listModule.showPatchList);
+
+        listClone.querySelector(".patch__list--name").addEventListener("submit", listModule.patchList);
+        listClone.querySelector("input[name='name']").addEventListener("blur", listModule.hidePatchList);
 
         listClone.querySelector(".list__header--create").addEventListener("click", cardModule.showCreateCardForm);
-        
-        //listClone.querySelector(".list__header--delete").addEventListener("click", listModule.deleteList);
+        listClone.querySelector(".list__header--delete").addEventListener("click", listModule.deleteList);
 
         listContainer.append(listClone);
     },
 
     // Creating List
 
-    showCreateListForm: (event) => {
+    showCreateListForm: () => {
         const listForm = document.querySelector(".list__form--container");
         listForm.classList.remove("hidden");
 
     },
 
-    hideCreateListForm: (event) => {
+    hideCreateListForm: () => {
         const listForm = document.querySelector(".list__form--container");
         listForm.classList.add("hidden");
     },
@@ -58,47 +64,93 @@ const listModule = {
 
     findAllLists: async() => {
         try{
+            const response = await fetch(`${utilsModule.base_url}/lists`);
 
+            const json = await response.json();
+
+            if(!response.ok) throw json;
+
+            for(let list of json){
+                listModule.insertListInHtml(list);
+            }
         }catch(error){
             console.error(error.message);
         }
     },
 
-    createList: async() => {
+    createList: async(event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
         try{
+            const response = await fetch(`${utilsModule.base_url}/lists`, {
+                method: "POST",
+                body: formData,
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            listModule.insertListInHtml(json);
+            event.target.parentElement.classList.add("hidden");
         }catch(error){
             console.error(error.message);
         }
     },
 
-    patchList: async() => {
-        try{
+    // Show or Hide patch list
 
+    showPatchList: (event) => {
+        event.target.classList.add("hidden");
+        event.target.nextElementSibling.classList.remove("hidden");
+        event.target.nextElementSibling.querySelector("input[name='name']").select();
+    },
+
+    hidePatchList: (event) => {
+        event.target.textContent = "";
+        event.target.value = "";
+        event.target.closest("form").classList.add("hidden");
+        const listName = event.target.closest(".list__container").querySelector("h2");
+        listName.classList.remove("hidden");
+    },
+
+    patchList: async(event) => {
+        event.preventDefault();
+        const targetListId = event.target.closest(".list__container").dataset.listId;
+        try{
+            const formData = new FormData(event.target);
+            
+            const response = await fetch(`${utilsModule.base_url}/lists/${targetListId}`, {
+                method: "PATCH",
+                body: formData,
+            });
+            
+            const json = await response.json();
+            
+            if(!response.ok) throw json;
+            const listName = event.target.parentElement.querySelector("h2");
+            listName.textContent = json.name;
+            listName.classList.remove("hidden");
+            event.target.closest(".patch__list--name").classList.add("hidden");
+            
         }catch(error){
             console.error(error.message);
         }
     },
 
-    deleteList: async() => {
+    deleteList: async(event) => {
         try{
+            const targetList = event.target.closest(".list__container");
+            const targetListId = event.target.closest(".list__container").dataset.listId;
+            const response = await fetch(`${utilsModule.base_url}/lists/${targetListId}`, {
+                method: "DELETE",
+            })
 
+            if(!response.ok) throw alert(json);
+
+            targetList.remove();
         }catch(error){
             console.error(error.message);
         }
     }
 }
-
-const test = {
-    name: "AWAWA",
-    id: "1",
-}
-
-const test2 = {
-    id: "213213",
-    name:"AWOWO",
-}
-
-listModule.insertListInHtml(test);
-
-listModule.insertListInHtml(test2);

@@ -13,21 +13,20 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 1em;
     position: relative;
     background-color: orange;
 }
 
 .list__buttons{
     @include mixins.center-element;
-    position: absolute;
-    right: 1em;
 }
 
 .list__header--create{
     @include mixins.center-element;
     padding: 0.2em 0.4em;
-    background-color: greenyellow;
+    background-color: lightblue;
     font-weight: bold;
     border-radius: 5px;
     margin-right: 5px;
@@ -43,6 +42,7 @@
 }
 
 .list__header--title{
+    @include mixins.center-element;
     padding: 1em 0;
     font-size: 1.5rem;
     font-weight: bold;

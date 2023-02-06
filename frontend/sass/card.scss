@@ -23,6 +23,8 @@
 .card__buttons{
     position: absolute;
     right: 1em;
+    @include mixins.center-element;
+
 }
 
 .card__button--delete{
@@ -32,6 +34,16 @@
     color: white;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.card__button--add-tag{
+    @include mixins.center-element;
+    background-color: pink;
+    padding: 0.2em 0.4em;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 0.3em;
 }
 
 .create__card--form{
