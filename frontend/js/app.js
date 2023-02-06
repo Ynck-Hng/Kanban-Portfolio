@@ -41,6 +41,9 @@ const app = {
                 listModule.insertListInHtml(list);
                 for(let card of list.cards){
                     cardModule.insertCardInHtml(card);
+                    for(let tag of card.tags){
+                        tagModule.insertTagInHtml(card, tag);
+                    }
                 }
             }
         }catch(error){
@@ -49,7 +52,5 @@ const app = {
     },
 
 }
-
-
 
 document.addEventListener("DOMContentLoaded", app.init);

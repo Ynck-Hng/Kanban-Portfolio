@@ -74,24 +74,30 @@ a {
   display: none;
 }
 
+img {
+  width: 10%;
+}
+
 header {
-  width: 100%;
-  padding: 1em 0;
+  padding: 1em 1em;
   border: solid 1px lightgray;
   display: flex;
   align-items: center;
-  justify-content: center;
-  position: relative;
+  justify-content: space-between;
+}
+
+.header__title--container {
+  display: flex;
+  align-items: center;
 }
 
 .header__title {
   font-size: 2rem;
   font-weight: bold;
+  margin-left: 0.5em;
 }
 
 .header__buttons {
-  position: absolute;
-  right: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,6 +149,7 @@ main {
   margin: 1em 0.5em;
   background-color: white;
   height: 100%;
+  border-radius: 5px;
 }
 
 .list__header {
@@ -270,6 +277,7 @@ main {
   width: 80%;
   margin-top: 1em;
   border: solid 2px black;
+  border-radius: 10px;
 }
 
 .card__buttons {

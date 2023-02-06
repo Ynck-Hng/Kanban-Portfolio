@@ -1,21 +1,30 @@
 @use "mixins.scss";
 
+img{
+    width: 10%;
+}
+
 header{
-    width: 100%;
-    padding: 1em 0;
+    padding: 1em 1em;
     border: solid 1px lightgray;
-    @include mixins.center-element;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.header__title--container{
+    display: flex;
+    align-items: center;
 }
 
 .header__title{
     font-size: 2rem;
     font-weight: bold;
+    margin-left: 0.5em;
 }
 
 .header__buttons{
-    position: absolute;
-    right: 1em;
     @include mixins.center-element;
 }
 
