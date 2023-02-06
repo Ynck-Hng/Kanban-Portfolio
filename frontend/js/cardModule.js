@@ -3,7 +3,7 @@ const cardTemplate = document.createElement("template");
 cardTemplate.innerHTML = `
 
 <!--card-->
-    <section class="card" dataset-card-id="">
+    <section class="card">
                             
         <div class="tag__container">
            <div class="card__button--add-tag">
@@ -15,11 +15,11 @@ cardTemplate.innerHTML = `
                 <div class="card__title--container"> 
                     <h3 class="card__title"> Card 1 </h3>
                 </div>
-                <div class="hidden">
+                <div class="card__edit--form-container hidden">
                     <form class="card__edit--form">
                         <div class="input__container">
                             <input type="text" name="name" placeholder="Nom..." class="card__name--edit">
-                            <input type="color" name="color" class="card__color--edit">
+                            <input type="color" name="color" class="card__color--edit" value="#ff0000">
                         </div>
                         <button type="submit" class="card__submit--edit"> Valider </button>
                     </form>
@@ -41,24 +41,18 @@ const cardModule = {
 
     insertCardInHtml: (cardData) => {
         const cardClone = document.importNode(cardTemplate.content, true);
+        cardClone.querySelector(".card").dataset.cardId = cardData.id;
         cardClone.querySelector(".card__title").textContent = cardData.name;
-        cardClone.querySelector(".card__title").addEventListener("dblclick", (e) => {
-            console.log(e);
-        });
 
-        cardClone.querySelector("input[name='color']").defaultValue = cardData.color;
-
+        cardClone.querySelector("input[name='color']").value = `${cardData.color}`;
+        
         cardClone.querySelector(".card__button--add-tag").addEventListener("click", () => {
             console.log("tag");
         })
 
-        cardClone.querySelector(".card__button--edit").addEventListener("click", () => {
-            console.log("couleur");
-        })
+        cardClone.querySelector(".card__button--edit").addEventListener("click", cardModule.showPatchCardForm);
 
-        cardClone.querySelector(".card__button--delete").addEventListener("click", () => {
-            console.log("delete");
-        })
+        cardClone.querySelector(".card__button--delete").addEventListener("click", cardModule.deleteCard);
 
         cardClone.querySelector(".card").style.borderColor = cardData.color;
 
@@ -109,6 +103,14 @@ const cardModule = {
         }
     },
 
+    showPatchCardForm: (event) => {
+        event.preventDefault();
+        const targetCard = event.target.closest(".card");
+        targetCard.querySelector(".card__title").classList.add("hidden");
+        targetCard.querySelector(".card__edit--form-container").classList.remove("hidden");
+        
+    },
+
     patchCard: async() => {
         try{
 
@@ -117,9 +119,19 @@ const cardModule = {
         }
     },
 
-    deleteCard: async() => {
+    deleteCard: async(event) => {
+        event.preventDefault();
+        const targetCardId = event.target.closest(".card").dataset.cardId;
         try{
+            const response = await fetch(`${utilsModule.base_url}/cards/${targetCardId}`, {
+                method: "DELETE",
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            event.target.closest(".card").remove();
         }catch(error){
             console.error(error.message);
         }

@@ -7,7 +7,8 @@ const listController = {
             include: {
                 association: "cards",
                 include: "tags",
-            }
+            },
+            order: [["position", "ASC"], ["cards", "position", "ASC"]],
         });
 
         if(!allLists){
