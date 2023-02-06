@@ -33,8 +33,10 @@ const listContainer = document.querySelector(".main__container--lists");
 const listModule = {
 
     insertListInHtml: (listData) => {
+        const listsContainer = document.querySelector(".main__container--lists");
         const listClone = document.importNode(listTemplate.content, true);
         listClone.querySelector(".list__container").dataset.listId = listData.id;
+
         listClone.querySelector("h2").textContent = listData.name;
         listClone.querySelector("h2").addEventListener("dblclick", listModule.showPatchList);
 
@@ -144,6 +146,22 @@ const listModule = {
             targetList.remove();
         }catch(error){
             console.error(error.message);
+        }
+    },
+
+    // list height checker
+
+    listHeightCheckerCardAdd: (list) => {
+        if(list.offsetHeight > window.innerHeight){
+            list.style.height = `${window.innerHeight - 75}px`;
+            list.classList.add("overflow-y");
+        }
+    },
+
+    listHeightCheckerCardRemove: (list) => {
+        if(list.offsetHeight < window.innerHeight){
+            list.style.height = "";
+            list.classList.remove("overflow-y");
         }
     }
 }

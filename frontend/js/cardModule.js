@@ -55,6 +55,7 @@ const cardModule = {
         cardClone.querySelector(".card__button--add-tag").addEventListener("click", () => {
             console.log("tag");
         })
+
         cardClone.querySelector(".card__button--edit").addEventListener("click", cardModule.showPatchCardForm);
 
         cardClone.querySelector(".card__button--delete").addEventListener("click", cardModule.deleteCard);
@@ -64,8 +65,8 @@ const cardModule = {
         const parentList = document.querySelector(`[data-list-id="${cardData.list_id}"`);
         const listCardContainer = parentList.querySelector(".cards__container");
         listCardContainer.append(cardClone);
+        listModule.listHeightCheckerCardAdd(parentList);
     },
-
 
     // Creating Card
 
@@ -153,6 +154,7 @@ const cardModule = {
     deleteCard: async(event) => {
         event.preventDefault();
         const targetCardId = event.target.closest(".card").dataset.cardId;
+        const parentList = event.target.closest(".list__container");
         try{
             const response = await fetch(`${utilsModule.base_url}/cards/${targetCardId}`, {
                 method: "DELETE",
@@ -163,6 +165,7 @@ const cardModule = {
             if(!response.ok) throw alert(json);
 
             event.target.closest(".card").remove();
+            listModule.listHeightCheckerCardRemove(parentList);
         }catch(error){
             console.error(error.message);
         }
