@@ -6,22 +6,31 @@ cardTemplate.innerHTML = `
     <section class="card" dataset-card-id="">
                             
         <div class="tag__container">
-           
+           <div class="card__button--add-tag">
+                <a href="#"> + </a>
+            </div>
         </div>
 
  
-        <h3 class="card__title"> Card 1 </h3>
-     
-
-        <div class="card__buttons">
-
-            <div class="card__button--add">
-                <a href="#"> + </a>
-            </div>
-
-            <div class="card__button--delete">
-                <a href="#"> x </a>
-            </div>
+        <div class="card__content">
+            <h3 class="card__title"> Card 1 </h3>
+                <div class="hidden">
+                    <form class="card__edit--form">
+                        <div class="input__container">
+                            <input type="text" name="name" placeholder="Nom..." class="card__name--edit">
+                            <input type="color" name="color" value="" class="card__color--edit">
+                        </div>
+                        <button type="submit" class="card__submit--edit"> Valider </button>
+                    </form>
+                </div>
+                <div class="card__buttons">               
+                    <div class="card__button--edit-color">
+                        <a href="#"> o </a>
+                    </div>
+                    <div class="card__button--delete">
+                        <a href="#"> x </a>
+                    </div>
+                </div>
         </div>
     </section>
 <!-- End card -->
@@ -50,7 +59,7 @@ const cardModule = {
 
     findAllCards: async() => {
         try{
-            
+
         }catch(error){
             console.error(error.message);
         }

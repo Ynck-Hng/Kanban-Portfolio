@@ -9,13 +9,11 @@
 }
 
 .card{
-    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-direction: column;
     padding: 0.5em;
-    position: relative;
-    height: 6em;
     width: 80%;
     margin-top: 1em;
     border: solid 2px black;
@@ -35,6 +33,20 @@
     border-radius: 5px;
 }
 
+.card__button--edit-color{
+    @include mixins.center-element;
+    background-color: orange;
+    padding: 0.2em 0.4em;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-right: 0.05em;
+}
+
+.palette{
+    width:100%;
+}
+
 .card__button--add-tag{
     @include mixins.center-element;
     background-color: pink;
@@ -42,7 +54,7 @@
     color: white;
     font-weight: bold;
     border-radius: 5px;
-    margin-right: 0.3em;
+    margin-right: 0.1em;
 }
 
 .create__card--form{
@@ -86,5 +98,42 @@
     padding: 0.2em 0.4em;
     border-radius: 50%;
     color: black;
+    @include mixins.center-element;
+}
+
+.card__title{
+
+}
+
+.card__edit--form{
+    @include mixins.center-element;
+    flex-direction: column;
+    margin-top: 1.4em;
+}
+
+.card__name--edit{
+    width: 70%
+}
+
+.card__color--edit{
+    width: 2em;
+    height: 2em;
+    background: none;
+    border: none;
+}
+
+.card__submit--edit{
+    align-self: center;
+}
+
+.card__content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.input__container{
     @include mixins.center-element;
 }

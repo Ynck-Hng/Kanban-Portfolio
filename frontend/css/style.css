@@ -262,13 +262,11 @@ main {
 }
 
 .card {
-  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: column;
   padding: 0.5em;
-  position: relative;
-  height: 6em;
   width: 80%;
   margin-top: 1em;
   border: solid 2px black;
@@ -291,6 +289,22 @@ main {
   border-radius: 5px;
 }
 
+.card__button--edit-color {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: orange;
+  padding: 0.2em 0.4em;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 0.05em;
+}
+
+.palette {
+  width: 100%;
+}
+
 .card__button--add-tag {
   display: flex;
   align-items: center;
@@ -300,7 +314,7 @@ main {
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  margin-right: 0.3em;
+  margin-right: 0.1em;
 }
 
 .create__card--form {
@@ -351,12 +365,47 @@ main {
   justify-content: center;
 }
 
-.tag__container {
-  position: absolute;
-  top: 0;
-  left: 0;
+.card__edit--form {
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1.4em;
+}
+
+.card__name--edit {
+  width: 70%;
+}
+
+.card__color--edit {
+  width: 2em;
+  height: 2em;
+  background: none;
+  border: none;
+}
+
+.card__submit--edit {
+  align-self: center;
+}
+
+.card__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.input__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag__container {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
 }
 
 .tag {
@@ -364,7 +413,7 @@ main {
   border-color: gray;
   margin-left: 3px;
   margin-top: 3px;
-  font-size: 14px;
+  font-size: 10px;
   padding: 2px 0.4em;
   border-radius: 5px;
 }
