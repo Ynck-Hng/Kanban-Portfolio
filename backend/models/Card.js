@@ -12,6 +12,13 @@ Card.init({
     color: {
         type: Sequelize.STRING,
     },
+    list_id:{
+        type: Sequelize.INTEGER,
+        unique: true,
+        validate: {
+            isInt: true
+        }
+    },
     created_at: Sequelize.DATE,
     updated_at: Sequelize.DATE,
 }, {

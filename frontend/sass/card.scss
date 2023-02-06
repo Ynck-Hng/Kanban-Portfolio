@@ -12,7 +12,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0.5em;
     position: relative;
     height: 6em;
     width: 80%;
@@ -21,8 +22,6 @@
 }
 
 .card__buttons{
-    position: absolute;
-    right: 1em;
     @include mixins.center-element;
 
 }
