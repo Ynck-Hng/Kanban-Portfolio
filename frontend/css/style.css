@@ -405,6 +405,11 @@ main {
   justify-content: center;
 }
 
+.card__title--container {
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
 .tag__container {
   display: flex;
   align-items: center;

@@ -21,7 +21,6 @@
 
 .card__buttons{
     @include mixins.center-element;
-
 }
 
 .card__button--delete{
@@ -135,4 +134,9 @@
 
 .input__container{
     @include mixins.center-element;
+}
+
+.card__title--container{
+    word-wrap: break-word;
+    overflow: hidden;
 }

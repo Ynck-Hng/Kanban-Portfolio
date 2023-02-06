@@ -21,7 +21,10 @@ cardTemplate.innerHTML = `
                             <input type="text" name="name" placeholder="Nom..." class="card__name--edit">
                             <input type="color" name="color" class="card__color--edit" value="#ff0000">
                         </div>
-                        <button type="submit" class="card__submit--edit"> Valider </button>
+                        <div class="button__container">
+                            <button type="submit" class="card__submit--edit"> Valider </button>
+                            <button type="button" class="card__cancel--edit"> Annuler </button>
+                        </div>
                     </form>
                 </div>
                 <div class="card__buttons">               
@@ -44,12 +47,14 @@ const cardModule = {
         cardClone.querySelector(".card").dataset.cardId = cardData.id;
         cardClone.querySelector(".card__title").textContent = cardData.name;
 
-        cardClone.querySelector("input[name='color']").value = `${cardData.color}`;
+        cardClone.querySelector(".card__edit--form").addEventListener("submit", cardModule.patchCard);
+        cardClone.querySelector(".card__cancel--edit").addEventListener("click", cardModule.hidePatchCardForm);
         
+        cardClone.querySelector("input[name='color']").value = `${cardData.color}`;
+
         cardClone.querySelector(".card__button--add-tag").addEventListener("click", () => {
             console.log("tag");
         })
-
         cardClone.querySelector(".card__button--edit").addEventListener("click", cardModule.showPatchCardForm);
 
         cardClone.querySelector(".card__button--delete").addEventListener("click", cardModule.deleteCard);
@@ -106,14 +111,40 @@ const cardModule = {
     showPatchCardForm: (event) => {
         event.preventDefault();
         const targetCard = event.target.closest(".card");
-        targetCard.querySelector(".card__title").classList.add("hidden");
+        targetCard.querySelector(".card__title--container").classList.add("hidden");
         targetCard.querySelector(".card__edit--form-container").classList.remove("hidden");
+        targetCard.querySelector("input[name='name']").select();
+    },
+
+    hidePatchCardForm: (event) => {
+        event.preventDefault();
+        const editCardForm = event.target.closest(".card__edit--form");
+        editCardForm.querySelector("input[name='name']").value = "";
+        editCardForm.parentElement.classList.add("hidden");
+        const cardTitleContainer = editCardForm.parentElement.previousElementSibling;
+        cardTitleContainer.classList.remove("hidden");
         
     },
 
-    patchCard: async() => {
+    patchCard: async(event) => {
+        event.preventDefault();
+        const targetCard = event.target.closest(".card");
+        const targetCardId = targetCard.dataset.cardId;
+        const formData = new FormData(event.target);
         try{
+            const response = await fetch(`${utilsModule.base_url}/cards/${targetCardId}`, {
+                method: "PATCH",
+                body: formData,
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            targetCard.style.borderColor = targetCard.querySelector("input[name='color']").value;
+            targetCard.querySelector(".card__title").textContent = targetCard.querySelector("input[name='name']").value;
+            targetCard.querySelector(".card__title--container").classList.remove("hidden");
+            targetCard.querySelector(".card__edit--form-container").classList.add("hidden");
         }catch(error){
             console.error(error.message);
         }
