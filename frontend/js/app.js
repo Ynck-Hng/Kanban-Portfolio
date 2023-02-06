@@ -21,13 +21,32 @@ const app = {
         const cardFormClose = document.querySelector(".card__form--close");
         cardFormClose.addEventListener("click", cardModule.hideCreateCardForm);
     
+        const cardForm = document.querySelector(".create__card--form");
+        cardForm.addEventListener("submit", cardModule.createCard);
+
             // tag
         const tagFormClose = document.querySelector(".tag__form--close");
         tagFormClose.addEventListener("click", tagModule.hideCreateTagForm);
     },
 
-    getListFromApi: () => {
-        listModule.findAllLists();
+    getListFromApi: async () => {
+        try{
+            const response = await fetch(`${utilsModule.base_url}/lists`);
+
+            const json = await response.json();
+
+            if(!response.ok) throw json;
+
+            for(let list of json){
+                listModule.insertListInHtml(list);
+                for(let card of list.cards){
+                    console.log(card);
+                    cardModule.insertCardInHtml(card);
+                }
+            }
+        }catch(error){
+            console.error(error.message);
+        }
     }
 
 }

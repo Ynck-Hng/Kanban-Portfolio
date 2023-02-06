@@ -197,7 +197,7 @@ main {
 }
 
 .create__list--form {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -289,7 +289,7 @@ main {
   border-radius: 5px;
 }
 
-.card__button--edit-color {
+.card__button--edit {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,7 +298,7 @@ main {
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  margin-right: 0.05em;
+  margin-right: 0.2em;
 }
 
 .palette {
@@ -314,11 +314,10 @@ main {
   color: white;
   font-weight: bold;
   border-radius: 5px;
-  margin-right: 0.1em;
 }
 
 .create__card--form {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -365,6 +364,10 @@ main {
   justify-content: center;
 }
 
+.card__title {
+  white-space: pre-wrap;
+}
+
 .card__edit--form {
   display: flex;
   align-items: center;
@@ -390,7 +393,7 @@ main {
 
 .card__content {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin: 1em 0;
@@ -434,7 +437,7 @@ main {
 }
 
 .create__tag--form {
-  position: absolute;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;

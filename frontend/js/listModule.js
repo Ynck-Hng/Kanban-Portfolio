@@ -63,19 +63,7 @@ const listModule = {
     // CRUD
 
     findAllLists: async() => {
-        try{
-            const response = await fetch(`${utilsModule.base_url}/lists`);
-
-            const json = await response.json();
-
-            if(!response.ok) throw json;
-
-            for(let list of json){
-                listModule.insertListInHtml(list);
-            }
-        }catch(error){
-            console.error(error.message);
-        }
+        
     },
 
     createList: async(event) => {

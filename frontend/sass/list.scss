@@ -53,7 +53,7 @@
 }
 
 .create__list--form{
-    position: absolute;
+    position: fixed;
     @include mixins.center-element;
     flex-direction: column;
     top: 50%;
