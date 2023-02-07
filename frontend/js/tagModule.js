@@ -2,10 +2,10 @@ const tagTemplate = document.createElement("template");
 
 tagTemplate.innerHTML = `
 
-<section class="tag" dataset-tag-id="">
+<section class="tag">
     <div class="tag__content">
         <span class="tag__name">Tag</span>
-        <a href="" class="tag__button--edit"> x </a>
+        <a href="" class="tag__button--delete"> x </a>
     </div>
     <div class="patch__tag--form-container hidden">
         <form class="patch__tag">
@@ -25,12 +25,15 @@ tagTemplateOption.innerHTML = `
 `
 
 const tagModule = {
-    
+    allTags: [],
+
     insertTagInHtml: (cardData, tagData) => {
         const tagClone = document.importNode(tagTemplate.content, true);
         tagClone.querySelector(".tag").dataset.tagId = tagData.id;
         tagClone.querySelector(".tag").style.borderColor = tagData.color;
+
         tagClone.querySelector(".tag__name").textContent = tagData.name;
+        tagClone.querySelector(".tag__button--delete").addEventListener("click", cardModule.removeTagFromCard);
 
         const parentCard = document.querySelector(`[data-card-id ="${cardData.id}"]`);
         const cardTagContainer = parentCard.querySelector(".tag__container");
@@ -51,7 +54,8 @@ const tagModule = {
 
     findAllTags: async(event) => {
         try{
-            
+            const response = await fetch(`${utilsModule.base_url}/tags`);
+            console.log(response.json());
         }catch(error){
             console.error(error.message);
         }
@@ -73,7 +77,10 @@ const tagModule = {
         const parentCardId = parentCard.dataset.cardId;
         const addTagToCardForm = document.querySelector(".assign__tag--form");
         addTagToCardForm.querySelector("input[name='card_id'").value = parentCardId;
+        
     },
+
+
 
     patchTag: async() => {
         try{
@@ -83,7 +90,8 @@ const tagModule = {
         }
     },
 
-    deleteTag: async() => {
+    deleteTag: async(event) => {
+        event.preventDefault();
         try{
 
         }catch(error){

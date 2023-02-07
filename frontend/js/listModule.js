@@ -130,6 +130,7 @@ const listModule = {
     },
 
     deleteList: async(event) => {
+        event.preventDefault();
         try{
             const targetList = event.target.closest(".list__container");
             const targetListId = event.target.closest(".list__container").dataset.listId;

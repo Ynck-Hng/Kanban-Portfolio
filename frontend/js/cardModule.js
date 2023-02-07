@@ -163,12 +163,27 @@ const cardModule = {
         }
     },
 
-    addTagToCard: async (event){
-        
+    addTagToCard: async (event) => {
+
     },
 
-    removeTagFromCard: async (event){
+    removeTagFromCard: async (event) => {
+        event.preventDefault();
+        const tag = event.target.closest(".tag");
+        const tagId = tag.dataset.tagId;
+        const parentCardId = event.target.closest(".card").dataset.cardId;
+        try{
+            const response = await fetch(`${utilsModule.base_url}/cards/${parentCardId}/tags/${tagId}`, {
+                method: "DELETE"
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+            tag.remove();
+        }catch(error){
+            console.log(error);
+        }
     },
 
 }
