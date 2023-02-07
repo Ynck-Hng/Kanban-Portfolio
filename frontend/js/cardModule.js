@@ -4,7 +4,6 @@ cardTemplate.innerHTML = `
 
 <!--card-->
     <section class="card">
-                            
         <div class="tag__container">
            <div class="card__button--add-tag">
                 <a href="#"> + </a>
@@ -49,7 +48,8 @@ const cardModule = {
 
         cardClone.querySelector(".card__edit--form").addEventListener("submit", cardModule.patchCard);
         cardClone.querySelector(".card__cancel--edit").addEventListener("click", cardModule.hidePatchCardForm);
-        
+    
+
         cardClone.querySelector("input[name='color']").value = `${cardData.color}`;
 
         cardClone.querySelector(".card__button--add-tag").addEventListener("click", tagModule.showAddTagToCardForm);
@@ -116,7 +116,6 @@ const cardModule = {
         editCardForm.parentElement.classList.add("hidden");
         const cardTitleContainer = editCardForm.parentElement.previousElementSibling;
         cardTitleContainer.classList.remove("hidden");
-        
     },
 
     patchCard: async(event) => {
@@ -133,11 +132,14 @@ const cardModule = {
             const json = await response.json();
 
             if(!response.ok) throw alert(json);
-
-            targetCard.style.borderColor = targetCard.querySelector("input[name='color']").value;
-            targetCard.querySelector(".card__title").textContent = targetCard.querySelector("input[name='name']").value;
-            targetCard.querySelector(".card__title--container").classList.remove("hidden");
+            
             targetCard.querySelector(".card__edit--form-container").classList.add("hidden");
+            event.target.querySelector("input[name='name']").value = "";
+            event.target.querySelector("input[name='name']").textContent = "";
+            targetCard.querySelector(".card__title--container").classList.remove("hidden");
+            targetCard.querySelector(".card__title").textContent = json.name;
+            targetCard.style.borderColor = json.color;
+
         }catch(error){
             console.error(error.message);
         }
@@ -164,7 +166,32 @@ const cardModule = {
     },
 
     addTagToCard: async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const form = event.target.closest(".assign__tag--form");
+        const cardId = form.querySelector("input[name='card_id']").value;
+        const parentCard = document.querySelector(`[data-card-id="${cardId}"]`);
+        const currentCard = {
+            id: cardId,
+            list_id: parentCard.closest(".list__container").dataset.listId,
+        }
+        try{
+            const response = await fetch(`${utilsModule.base_url}/cards/${currentCard.id}/tags`, {
+                method: "POST",
+                body: formData
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            tagModule.insertTagInCard(currentCard, json);
+
+            form.parentElement.classList.add("hidden");
+
+        }catch(error){
+            console.log(error);
+        }
     },
 
     removeTagFromCard: async (event) => {
@@ -185,5 +212,4 @@ const cardModule = {
             console.log(error);
         }
     },
-
 }

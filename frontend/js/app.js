@@ -30,8 +30,14 @@ const app = {
         const tagForm = document.querySelector(".create__tag--form");
         tagForm.addEventListener("submit", tagModule.createTag);
     
+        const assignTagForm = document.querySelector(".assign__tag--form");
+        assignTagForm.addEventListener("submit", cardModule.addTagToCard);
+
         const showRemoveTagForm = document.querySelector(".remove__tag--button");
         showRemoveTagForm.addEventListener("click", tagModule.showRemoveTagForm);
+
+        const removeTagForm = document.querySelector(".delete__tag--form");
+        removeTagForm.addEventListener("submit", tagModule.deleteTag);
     },
 
     getListFromApi: async () => {

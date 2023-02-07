@@ -24,7 +24,6 @@ tagTemplateOption.innerHTML = `
 `
 
 const tagModule = {
-    allTags: [],
 
     insertTagInCard: (cardData, tagData) => {
         const tagClone = document.importNode(tagTemplate.content, true);
@@ -65,7 +64,6 @@ const tagModule = {
     },
 
     showCreateTagForm: (event) => {
-        // TODO
         event.preventDefault();
         const createTagForm = document.querySelector(".tag__add--form-container");
         createTagForm.classList.remove("hidden");
@@ -73,8 +71,13 @@ const tagModule = {
 
     showRemoveTagForm: (event) => {
         event.preventDefault();
-        const removeTagForm = document.querySelector(".tag__remove--form-container");
-        removeTagForm.classList.remove("hidden");
+        const removeTagFormContainer = document.querySelector(".tag__remove--form-container");
+        removeTagFormContainer.classList.remove("hidden");
+        const removeTagForm = removeTagFormContainer.querySelector("form");
+        const currentTagOptions = removeTagForm.querySelectorAll("option");
+        for(let option of currentTagOptions){
+            option.remove();
+        }
         tagModule.findAllTags();
     },
 
@@ -125,10 +128,13 @@ const tagModule = {
         const parentCardId = parentCard.dataset.cardId;
         const addTagToCardForm = document.querySelector(".assign__tag--form");
         addTagToCardForm.querySelector("input[name='card_id'").value = parentCardId;
-        const tags = tagModule.findAllTags();
+        
+        const currentTagOptions = addTagToCardForm.querySelectorAll("option");
+        for(let option of currentTagOptions){
+            option.remove();
+        }
+        tagModule.findAllTags();
     },
-
-
 
     patchTag: async() => {
         try{
@@ -140,7 +146,21 @@ const tagModule = {
 
     deleteTag: async(event) => {
         event.preventDefault();
+        const targetTagId = event.target.querySelector("select[name='id']").value;
+        console.log(targetTagId);
         try{
+
+            const response = await fetch(`${utilsModule.base_url}/tags/${targetTagId}`, {
+                method: "DELETE",
+            })
+
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            event.target.closest(".tag__remove--form-container").classList.add("hidden");
+            
+            event.target.reset();
 
         }catch(error){
             console.error(error.message);

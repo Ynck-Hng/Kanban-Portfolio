@@ -72,7 +72,7 @@ const cardController = {
         }
 
         const updatedCard = await findCard.update({name, color, list_id});
-
+        
         res.status(200).json(updatedCard);
     }),
 
@@ -118,7 +118,7 @@ const cardController = {
 
         await findCard.addTag(findTag);
 
-        res.status(200).json("Catégorie ajoutée !");
+        res.status(200).json(findTag);
     }),
 
     removeOneTagFromCard: errorCatcher(async(req,res) => {
