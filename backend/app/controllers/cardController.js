@@ -113,7 +113,7 @@ const cardController = {
         const findTag = await Tag.findByPk(tagId);
 
         if(!findTag){
-            return res.status(404).json("Cette catégorie n'existe pas (encore)...");
+            return res.status(404).json("Veuillez sélectionner une catégorie valide.");
         }
 
         await findCard.addTag(findTag);

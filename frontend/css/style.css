@@ -103,7 +103,7 @@ header {
   justify-content: center;
 }
 
-.create__list--button {
+.create__list--button, .remove__tag--button, .create__tag--button {
   background-color: greenyellow;
   padding: 0.8em 1em;
   font-weight: bold;
@@ -115,24 +115,21 @@ header {
 }
 
 .create__tag--button {
-  padding: 0.8em 1em;
-  font-weight: bold;
-  border-radius: 5px;
-  margin-right: 1em;
   background-color: lightpink;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .button__title {
   margin-right: 1em;
 }
 
-.header__list, .header__tag {
+.header__list, .header__tag--add, .header__tag--remove {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.remove__tag--button {
+  background-color: red;
 }
 
 main {
@@ -514,7 +511,7 @@ main {
   justify-content: center;
 }
 
-.assign__tag--form {
+.assign__tag--form, .delete__tag--form {
   position: fixed;
   display: flex;
   align-items: center;
@@ -531,7 +528,7 @@ main {
   border-radius: 5px;
 }
 
-.tag__assign--close {
+.tag__assign--close, .tag__form--remove-close {
   align-self: flex-end;
   margin-right: 1em;
   background-color: white;
@@ -544,7 +541,7 @@ main {
   justify-content: center;
 }
 
-.tag__assign--title {
+.tag__assign--title, .tag__remove--title {
   font-size: 2rem;
   font-weight: bold;
   border-bottom: solid 1px lightgray;
@@ -553,7 +550,7 @@ main {
   padding-bottom: 20px;
 }
 
-.tag__assign--input {
+.tag__assign--input, .remove__tag--input {
   margin: 4em 0 3em 0;
   font-size: 1.2rem;
 }

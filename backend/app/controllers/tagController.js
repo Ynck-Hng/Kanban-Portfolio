@@ -31,6 +31,16 @@ const tagController = {
             return res.status(400).json("Le nom est nécessaire pour créer une catégorie.");
         }
 
+        const findTag = await Tag.findOne({
+            where:{
+                name,
+            }
+        })
+
+        if(findTag){
+            return res.status(400).json("Nom de catégorie existant, veuillez saisir un autre nom.");
+        }
+
         if(!color){
             color = "#FFF";
         }
@@ -69,6 +79,10 @@ const tagController = {
 
     deleteOneTag: errorCatcher(async(req,res) => {
         const tagId = req.params.tagId;
+
+        if(!tagId){
+            return res.status(400).json("Veuillez sélectionner une catégorie à supprimer.");
+        }
 
         const findTag = await Tag.findByPk(tagId);
 

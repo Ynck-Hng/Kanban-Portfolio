@@ -26,8 +26,11 @@
                 <div class="header__list">
                     <span class="button__list--title button__title"> Créer une liste </span><a href="#" class="create__list--button"> + </a>
                 </div>
-                <div class="header__tag">
+                <div class="header__tag--add">
                     <span class="button__tag--title button__title"> Créer un tag</span><a href="#" class="create__tag--button"> + </a>
+                </div>
+                <div class="header__tag--remove">
+                    <span class="button__tag--title button__title"> Supprimer un tag</span><a href="#" class="remove__tag--button"> - </a>
                 </div>
             </div>
         </header>
@@ -168,7 +171,7 @@
                 </form>
             </div>
             
-            <div class="tag__form--container modal hidden">
+            <div class="tag__add--form-container modal hidden">
                 <form class="create__tag--form">
                     <a href="#" class="tag__form--close close__modal"> x </a>
                     <h2 class="tag__form--title"> Add tag </h2>
@@ -179,13 +182,24 @@
                 </form>
             </div>
 
+            <div class="tag__remove--form-container modal hidden">
+                <form class="delete__tag--form">
+                    <a href="#" class="tag__form--remove-close close__modal"> x </a>
+                    <h2 class="tag__remove--title"> Remove tag </h2>
+                        <select name="id" class="remove__tag--input">
+                            <option value = ""> Sélectionner </option>
+                        </select>
+                    <button type="submit" class="tag__form--delete-submit submit__button--form"> Delete </button>
+                </form>
+            </div>
+
             <div class="tag__assign--form-container modal hidden">
                 <form class="assign__tag--form">
                     <a href="#" class="tag__assign--close close__modal"> x </a>
                     <h2 class="tag__assign--title"> Add tag to card </h2>
                     <input type="hidden" name="card_id">
                         <select name="name" class="tag__assign--input">
-
+                            <option value = ""> Sélectionner </option>
                         </select>
                     <button type="submit" class="tag__assign--submit submit__button--form"> Add </button>
                 </form>

@@ -108,9 +108,8 @@ const listModule = {
     patchList: async(event) => {
         event.preventDefault();
         const targetListId = event.target.closest(".list__container").dataset.listId;
+        const formData = new FormData(event.target);
         try{
-            const formData = new FormData(event.target);
-            
             const response = await fetch(`${utilsModule.base_url}/lists/${targetListId}`, {
                 method: "PATCH",
                 body: formData,

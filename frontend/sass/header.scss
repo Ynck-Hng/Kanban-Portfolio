@@ -38,18 +38,19 @@ header{
 }
 
 .create__tag--button{
-    padding: 0.8em 1em;
-    font-weight: bold;
-    border-radius: 5px;
-    margin-right: 1em;
+    @extend .create__list--button;
     background-color: lightpink;
-    @include mixins.center-element;
 }
 
 .button__title{
     margin-right: 1em;
 }
 
-.header__list, .header__tag{
+.header__list, .header__tag--add, .header__tag--remove{
     @include mixins.center-element;
+}
+
+.remove__tag--button{
+    @extend .create__list--button;
+    background-color: red;
 }

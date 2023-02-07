@@ -21,13 +21,12 @@ tagTemplate.innerHTML = `
 const tagTemplateOption = document.createElement("template");
 tagTemplateOption.innerHTML = `
 <option value=""> </option>
-
 `
 
 const tagModule = {
     allTags: [],
 
-    insertTagInHtml: (cardData, tagData) => {
+    insertTagInCard: (cardData, tagData) => {
         const tagClone = document.importNode(tagTemplate.content, true);
         tagClone.querySelector(".tag").dataset.tagId = tagData.id;
         tagClone.querySelector(".tag").style.borderColor = tagData.color;
@@ -37,33 +36,82 @@ const tagModule = {
 
         const parentCard = document.querySelector(`[data-card-id ="${cardData.id}"]`);
         const cardTagContainer = parentCard.querySelector(".tag__container");
+
         cardTagContainer.append(tagClone);
 
         const parentList = document.querySelector(`[data-list-id="${cardData.list_id}"]`);
         listModule.listHeightCheckerCardAdd(parentList);
     },
 
+    insertTagOptionsInAssignForm: (tagData) => {
+        const tagOptionContainer = document.querySelector(".tag__assign--input"); 
+        const tagOptionClone = document.importNode(tagTemplateOption.content, true);
+
+        tagOptionClone.querySelector("option").value = tagData.id;
+        tagOptionClone.querySelector("option").textContent = tagData.name;
+        
+
+        tagOptionContainer.append(tagOptionClone);
+    },
+
+    insertTagOptionsInRemoveForm: (tagData) => {
+        const tagOptionContainer = document.querySelector(".remove__tag--input"); 
+        const tagOptionClone = document.importNode(tagTemplateOption.content, true);
+
+        tagOptionClone.querySelector("option").value = tagData.id;
+        tagOptionClone.querySelector("option").textContent = tagData.name;
+    
+        tagOptionContainer.append(tagOptionClone);
+    },
+
     showCreateTagForm: (event) => {
         // TODO
         event.preventDefault();
-        const createTagForm = document.querySelector(".tag__form--container");
+        const createTagForm = document.querySelector(".tag__add--form-container");
         createTagForm.classList.remove("hidden");
+    },
+
+    showRemoveTagForm: (event) => {
+        event.preventDefault();
+        const removeTagForm = document.querySelector(".tag__remove--form-container");
+        removeTagForm.classList.remove("hidden");
+        tagModule.findAllTags();
     },
 
     // CRUD
 
-    findAllTags: async(event) => {
+    findAllTags: async() => {
         try{
             const response = await fetch(`${utilsModule.base_url}/tags`);
-            console.log(response.json());
+            
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            for(let tag of json){
+                tagModule.insertTagOptionsInAssignForm(tag);
+                tagModule.insertTagOptionsInRemoveForm(tag);
+            }
         }catch(error){
             console.error(error.message);
         }
     },
 
-    createTag: async() => {
+    createTag: async(event) => {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
         try{
+            const response = await fetch(`${utilsModule.base_url}/tags`, {
+                method: "POST",
+                body: formData
+            })
 
+            const json = await response.json();
+
+            if(!response.ok) throw json;
+
+            console.log("c'est bon");
         }catch(error){
             console.error(error.message);
         }
@@ -77,7 +125,7 @@ const tagModule = {
         const parentCardId = parentCard.dataset.cardId;
         const addTagToCardForm = document.querySelector(".assign__tag--form");
         addTagToCardForm.querySelector("input[name='card_id'").value = parentCardId;
-        
+        const tags = tagModule.findAllTags();
     },
 
 

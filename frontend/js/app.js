@@ -26,6 +26,12 @@ const app = {
             // tag
         const showTagForm = document.querySelector(".create__tag--button");
         showTagForm.addEventListener("click", tagModule.showCreateTagForm);
+
+        const tagForm = document.querySelector(".create__tag--form");
+        tagForm.addEventListener("submit", tagModule.createTag);
+    
+        const showRemoveTagForm = document.querySelector(".remove__tag--button");
+        showRemoveTagForm.addEventListener("click", tagModule.showRemoveTagForm);
     },
 
     getListFromApi: async () => {
@@ -41,7 +47,7 @@ const app = {
                 for(let card of list.cards){
                     cardModule.insertCardInHtml(card);
                     for(let tag of card.tags){
-                        tagModule.insertTagInHtml(card, tag);
+                        tagModule.insertTagInCard(card, tag);
                     }
                 }
             }

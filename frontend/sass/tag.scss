@@ -146,3 +146,19 @@
     border-radius: 5px;
     margin-left: 0.5em;
 }
+
+.delete__tag--form{
+    @extend .assign__tag--form;
+}
+
+.tag__remove--title{
+    @extend .tag__assign--title;
+}
+
+.remove__tag--input{
+    @extend .tag__assign--input;
+}
+
+.tag__form--remove-close{
+    @extend .tag__assign--close;
+}
