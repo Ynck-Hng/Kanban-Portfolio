@@ -23,8 +23,12 @@
             </div>
             
             <div class="header__buttons">
-                <span class="button__list--title"> Créer une liste </span><a href="#" class="create__list--button"> + </a>
-                <span class="button__list--title"> Créer un tag</span><a href="#" class="create__tag--button"> + </a>
+                <div class="header__list">
+                    <span class="button__list--title button__title"> Créer une liste </span><a href="#" class="create__list--button"> + </a>
+                </div>
+                <div class="header__tag">
+                    <span class="button__tag--title button__title"> Créer un tag</span><a href="#" class="create__tag--button"> + </a>
+                </div>
             </div>
         </header>
 
@@ -144,18 +148,18 @@
             </div>
 
             
-            <div class="list__form--container hidden">
+            <div class="list__form--container modal hidden">
                 <form class="create__list--form">
-                    <a href="#" class="list__form--close"> x </a>
+                    <a href="#" class="list__form--close close__modal"> x </a>
                     <h2 class="list__form--title"> Add list </h2>
                     <input type="text" name="name" class="list__name--input" placeholder="Nom de la liste...">
                     <button type="submit" class="list__form--submit submit__button--form"> Create </button>
                 </form>
             </div>
             
-            <div class="card__form--container hidden">
+            <div class="card__form--container modal hidden">
                 <form class="create__card--form">
-                    <a href="#" class="card__form--close"> x </a>
+                    <a href="#" class="card__form--close close__modal"> x </a>
                     <input type="hidden" name="list_id"> 
                     <h2 class="card__form--title"> Add card </h2>
                     <input type="text" name="name" class="card__name--input" placeholder="Nom de la carte...">
@@ -164,14 +168,26 @@
                 </form>
             </div>
             
-            <div class="tag__form--container hidden">
+            <div class="tag__form--container modal hidden">
                 <form class="create__tag--form">
-                    <a href="#" class="tag__form--close"> x </a>
+                    <a href="#" class="tag__form--close close__modal"> x </a>
                     <h2 class="tag__form--title"> Add tag </h2>
                     <input type="hidden" name="card_id">
                     <input type="text" name="name" class="tag__name--input" placeholder="Nom de la catégorie...">
-                    <input type="color" name="color" class="tag__color--input">
+                    <input type="color" name="color" class="tag__color--input" value="#000000">
                     <button type="submit" class="tag__form--submit submit__button--form"> Create </button>
+                </form>
+            </div>
+
+            <div class="tag__assign--form-container modal hidden">
+                <form class="assign__tag--form">
+                    <a href="#" class="tag__assign--close close__modal"> x </a>
+                    <h2 class="tag__assign--title"> Add tag to card </h2>
+                    <input type="hidden" name="card_id">
+                        <select name="name" class="tag__assign--input">
+
+                        </select>
+                    <button type="submit" class="tag__assign--submit submit__button--form"> Add </button>
                 </form>
             </div>
 

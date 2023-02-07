@@ -52,9 +52,7 @@ const cardModule = {
         
         cardClone.querySelector("input[name='color']").value = `${cardData.color}`;
 
-        cardClone.querySelector(".card__button--add-tag").addEventListener("click", () => {
-            console.log("tag");
-        })
+        cardClone.querySelector(".card__button--add-tag").addEventListener("click", tagModule.showAddTagToCardForm);
 
         cardClone.querySelector(".card__button--edit").addEventListener("click", cardModule.showPatchCardForm);
 
@@ -77,12 +75,6 @@ const cardModule = {
         const parentList = event.target.closest(".list__container");
         const parentListId = parentList.dataset.listId;
         createCardForm.querySelector("input[name='list_id']").value = parentListId;
-    },
-
-    hideCreateCardForm: (event) => {
-        event.preventDefault();
-        const createCardForm = document.querySelector(".card__form--container");
-        createCardForm.classList.add("hidden");
     },
 
 
@@ -169,6 +161,14 @@ const cardModule = {
         }catch(error){
             console.error(error.message);
         }
-    }
+    },
+
+    addTagToCard: async (event){
+        
+    },
+
+    removeTagFromCard: async (event){
+
+    },
 
 }

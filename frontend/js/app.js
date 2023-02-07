@@ -7,26 +7,25 @@ const app = {
 
     addListenerToActions: () => {
 
+        const allCloseModalButtons = document.querySelectorAll(".close__modal");
+        allCloseModalButtons.forEach(btn => btn.addEventListener("click", utilsModule.hide_modals)); 
+
             // list
         const showListForm = document.querySelector(".create__list--button");
         showListForm.addEventListener("click", listModule.showCreateListForm);
 
-        const listFormClose = document.querySelector(".list__form--close");
-        listFormClose.addEventListener("click", listModule.hideCreateListForm);
 
         const listForm = document.querySelector(".create__list--form");
         listForm.addEventListener("submit", listModule.createList);
 
             // card
-        const cardFormClose = document.querySelector(".card__form--close");
-        cardFormClose.addEventListener("click", cardModule.hideCreateCardForm);
-    
+
         const cardForm = document.querySelector(".create__card--form");
         cardForm.addEventListener("submit", cardModule.createCard);
 
             // tag
-        const tagFormClose = document.querySelector(".tag__form--close");
-        tagFormClose.addEventListener("click", tagModule.hideCreateTagForm);
+        const showTagForm = document.querySelector(".create__tag--button");
+        showTagForm.addEventListener("click", tagModule.showCreateTagForm);
     },
 
     getListFromApi: async () => {

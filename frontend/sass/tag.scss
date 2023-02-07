@@ -12,6 +12,7 @@
     font-size: 10px;
     padding: 2px 0.4em;
     border-radius: 5px;
+    @include mixins.center-element;
 }
 
 .tag__name{
@@ -69,4 +70,83 @@
     border-radius: 50%;
     color: black;
     @include mixins.center-element;
+}
+
+.tag__assign--form-container{
+
+}
+
+.assign__tag--form{
+    position: fixed;
+    @include mixins.center-element;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-color: white;
+    width: 40%;
+    height: 40%;
+    border: solid 3px black;
+    border-radius: 5px;
+}
+
+.tag__assign--close{
+    align-self: flex-end;
+    margin-right: 1em;
+    background-color: white;
+    border: solid 1px black;
+    padding: 0.2em 0.4em;
+    border-radius: 50%;
+    color: black;
+    @include mixins.center-element;
+}
+
+.tag__assign--title{
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: solid 1px lightgray;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.tag__assign--input{
+    margin: 4em 0 3em 0;
+    font-size: 1.2rem;
+}
+
+.tag__container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.patch__tag{
+    @include mixins.center-element;
+}
+
+.tag__patch--name-input{
+    width: 3em;
+}
+
+.tag__patch--color-input{
+    width: 1.5em;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.tag__content{
+    @include mixins.center-element;
+}
+
+.tag__button--edit{
+    @include mixins.center-element;
+    background-color: red;
+    padding: 0.1em 0.3em;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 0.5em;
 }

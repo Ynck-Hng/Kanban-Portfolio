@@ -3,7 +3,17 @@ const tagTemplate = document.createElement("template");
 tagTemplate.innerHTML = `
 
 <section class="tag" dataset-tag-id="">
-    <span class="tag__name">Tag</span>
+    <div class="tag__content">
+        <span class="tag__name">Tag</span>
+        <a href="" class="tag__button--edit"> x </a>
+    </div>
+    <div class="patch__tag--form-container hidden">
+        <form class="patch__tag">
+            <input type="text" name="name" class="tag__patch--name-input">
+            <input type="color" name="color" class="tag__patch--color-input">
+            <button type="submit" > ✔ </button>
+        </form>
+    </div>
 </section>
 
 `;
@@ -30,19 +40,18 @@ const tagModule = {
         listModule.listHeightCheckerCardAdd(parentList);
     },
 
-    showCreateTagForm: () => {
+    showCreateTagForm: (event) => {
         // TODO
-    },
-
-    hideCreateTagForm: () => {
-        // TODO
+        event.preventDefault();
+        const createTagForm = document.querySelector(".tag__form--container");
+        createTagForm.classList.remove("hidden");
     },
 
     // CRUD
 
-    findAllTags: async() => {
+    findAllTags: async(event) => {
         try{
-
+            
         }catch(error){
             console.error(error.message);
         }
@@ -54,6 +63,16 @@ const tagModule = {
         }catch(error){
             console.error(error.message);
         }
+    },
+
+    showAddTagToCardForm: (event) => {
+        event.preventDefault();
+        const formContainer = document.querySelector(".tag__assign--form-container");
+        formContainer.classList.remove("hidden");
+        const parentCard = event.target.closest(".card");
+        const parentCardId = parentCard.dataset.cardId;
+        const addTagToCardForm = document.querySelector(".assign__tag--form");
+        addTagToCardForm.querySelector("input[name='card_id'").value = parentCardId;
     },
 
     patchTag: async() => {

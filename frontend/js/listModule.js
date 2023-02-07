@@ -58,11 +58,7 @@ const listModule = {
 
     },
 
-    hideCreateListForm: (event) => {
-        event.preventDefault();
-        const listForm = document.querySelector(".list__form--container");
-        listForm.classList.add("hidden");
-    },
+
 
     // CRUD
 

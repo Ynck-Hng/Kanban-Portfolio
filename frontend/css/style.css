@@ -103,7 +103,7 @@ header {
   justify-content: center;
 }
 
-.create__list--button, .create__tag--button {
+.create__list--button {
   background-color: greenyellow;
   padding: 0.8em 1em;
   font-weight: bold;
@@ -115,12 +115,24 @@ header {
 }
 
 .create__tag--button {
+  padding: 0.8em 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-right: 1em;
   background-color: lightpink;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.button__list--title {
+.button__title {
   margin-right: 1em;
+}
+
+.header__list, .header__tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main {
@@ -318,7 +330,7 @@ main {
   align-items: center;
   justify-content: center;
   background-color: pink;
-  padding: 0.2em 0.4em;
+  padding: 0.05em 0.3em;
   color: white;
   font-weight: bold;
   border-radius: 5px;
@@ -393,6 +405,7 @@ main {
   height: 2em;
   background: none;
   border: none;
+  padding: 0;
 }
 
 .card__submit--edit {
@@ -432,6 +445,9 @@ main {
   font-size: 10px;
   padding: 2px 0.4em;
   border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tag__name {
@@ -495,6 +511,91 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.assign__tag--form {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: white;
+  width: 40%;
+  height: 40%;
+  border: solid 3px black;
+  border-radius: 5px;
+}
+
+.tag__assign--close {
+  align-self: flex-end;
+  margin-right: 1em;
+  background-color: white;
+  border: solid 1px black;
+  padding: 0.2em 0.4em;
+  border-radius: 50%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag__assign--title {
+  font-size: 2rem;
+  font-weight: bold;
+  border-bottom: solid 1px lightgray;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.tag__assign--input {
+  margin: 4em 0 3em 0;
+  font-size: 1.2rem;
+}
+
+.tag__container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.patch__tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag__patch--name-input {
+  width: 3em;
+}
+
+.tag__patch--color-input {
+  width: 1.5em;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.tag__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag__button--edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  padding: 0.1em 0.3em;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 0.5em;
 }
 
 footer {
