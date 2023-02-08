@@ -77,6 +77,7 @@ const cardModule = {
         const parentList = event.target.closest(".list__container");
         const parentListId = parentList.dataset.listId;
         createCardForm.querySelector("input[name='list_id']").value = parentListId;
+        document.querySelector(".modal__background").classList.remove("hidden");
     },
 
 
@@ -98,6 +99,8 @@ const cardModule = {
             cardModule.insertCardInHtml(json);
             event.target.parentElement.classList.add("hidden");
             event.target.reset();
+            document.querySelector(".modal__background").classList.add("hidden");
+
         }catch(error){
             console.error(error.message);
         }
@@ -190,6 +193,7 @@ const cardModule = {
             tagModule.insertTagInCard(currentCard, json);
 
             form.parentElement.classList.add("hidden");
+            document.querySelector(".modal__background").classList.add("hidden");
 
         }catch(error){
             console.log(error);
@@ -244,6 +248,7 @@ const cardModule = {
                 const json = await response.json();
 
                 if(!response.ok) throw alert(json);
+                listModule.listHeightCheckerCardAdd(nextListContainer);
             });
 
             // previous list
@@ -261,6 +266,8 @@ const cardModule = {
                 const json = await response.json();
 
                 if(!response.ok) throw alert(json);
+                listModule.listHeightCheckerCardAdd(previousListContainer);
+
             })
         }catch(error){
             console.log(error);

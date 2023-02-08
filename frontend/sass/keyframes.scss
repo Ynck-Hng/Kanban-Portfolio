@@ -1,6 +1,6 @@
 @keyframes slideIn {
     0% {
-        top: -10%;
+        top: -20%;
     }
 
     70% {
@@ -30,4 +30,32 @@
 
 .slideIn{
     animation: 1s ease-in-out 0s slideIn;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0%;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.fadeIn{
+    animation: 0.5s ease-in 0s fadeIn;
+}
+
+@keyframes fadeOut{
+    0% {
+        opacity: 100%;
+    }
+
+    100%{
+        opacity: 0%;
+    }
+}
+
+.fadeOut{
+    animation: 0.5s ease-out 0s fadeOut;
 }

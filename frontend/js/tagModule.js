@@ -73,10 +73,12 @@ const tagModule = {
         event.preventDefault();
         const createTagForm = document.querySelector(".tag__add--form-container");
         createTagForm.classList.remove("hidden");
+        document.querySelector(".modal__background").classList.remove("hidden");
     },
 
     showRemoveTagForm: (event) => {
         event.preventDefault();
+        document.querySelector(".modal__background").classList.remove("hidden");
         const removeTagFormContainer = document.querySelector(".tag__remove--form-container");
         removeTagFormContainer.classList.remove("hidden");
         const removeTagForm = removeTagFormContainer.querySelector("form");
@@ -122,6 +124,8 @@ const tagModule = {
 
             event.target.closest(".tag__add--form-container").classList.add("hidden");
             event.target.reset();
+            document.querySelector(".modal__background").classList.add("hidden");
+
         }catch(error){
             console.error(error.message);
         }
@@ -129,6 +133,7 @@ const tagModule = {
 
     showAddTagToCardForm: (event) => {
         event.preventDefault();
+        document.querySelector(".modal__background").classList.remove("hidden");
         const formContainer = document.querySelector(".tag__assign--form-container");
         formContainer.classList.remove("hidden");
         const parentCard = event.target.closest(".card");
@@ -207,7 +212,7 @@ const tagModule = {
             event.target.closest(".tag__remove--form-container").classList.add("hidden");
             
             event.target.reset();
-
+            document.querySelector(".modal__background").classList.add("hidden");
         }catch(error){
             console.error(error.message);
         }

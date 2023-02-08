@@ -72,7 +72,7 @@ const listModule = {
         event.preventDefault();
         const listForm = document.querySelector(".list__form--container");
         listForm.classList.remove("hidden");
-
+        document.querySelector(".modal__background").classList.remove("hidden");
     },
 
     // CRUD
@@ -93,6 +93,7 @@ const listModule = {
             listModule.insertListInHtml(json);
             event.target.parentElement.classList.add("hidden");
             event.target.reset();
+            document.querySelector(".modal__background").classList.add("hidden");
         }catch(error){
             console.error(error.message);
         }
