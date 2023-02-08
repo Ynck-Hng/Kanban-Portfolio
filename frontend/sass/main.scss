@@ -4,7 +4,7 @@ main {
     width: 100%;
     min-height: 100vh;
     padding: 1em 0;
-    background-color: red;
+    background-image: linear-gradient(white, gray);
     position: relative;
     overflow: auto;
     overflow-y: hidden;
@@ -15,6 +15,7 @@ main {
     white-space: nowrap;
     position: absolute;
     left: 0;
+    width: 100%;
 }
 
 @import "list.scss";

@@ -218,10 +218,50 @@ const cardModule = {
     // Drag card
 
     dragCardOnEnd: (event) => {
-        const nextListContainer = event.to;
-        const previousListContainer = event.from;
+            // new list container
+        const nextListContainer = event.to.closest(".list__container");
+        const nextListContainerId = nextListContainer.dataset.listId;
+        const allCardsInNextList = nextListContainer.querySelectorAll(".card");
+
+            // previous list container
+        const previousListContainer = event.from.closest(".list__container");
+        const previousListContainerId = previousListContainer.dataset.listId;
+        const allCardInPreviousList = previousListContainer.querySelectorAll(".card")
+
         try{
-            
+
+            // new list
+            allCardsInNextList.forEach(async (card, index) => {
+                const currentCardId = card.dataset.cardId;
+                const formData = new FormData();
+                formData.append("position", index + 1);
+                formData.append("list_id", nextListContainerId);
+                const response = await fetch(`${utilsModule.base_url}/cards/${currentCardId}`, {
+                    method: "PATCH",
+                    body: formData
+                });
+
+                const json = await response.json();
+
+                if(!response.ok) throw alert(json);
+            });
+
+            // previous list
+            allCardInPreviousList.forEach(async (card, index) => {
+                const currentCardId = card.dataset.cardId;
+                const formData = new FormData();
+                formData.append("position", index + 1);
+                formData.append("list_id", previousListContainerId);
+
+                const response = await fetch(`${utilsModule.base_url}/cards/${currentCardId}`, {
+                    method: "PATCH",
+                    body: formData,
+                });
+
+                const json = await response.json();
+
+                if(!response.ok) throw alert(json);
+            })
         }catch(error){
             console.log(error);
         }

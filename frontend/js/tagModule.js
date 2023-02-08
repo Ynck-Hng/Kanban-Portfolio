@@ -73,7 +73,6 @@ const tagModule = {
         event.preventDefault();
         const createTagForm = document.querySelector(".tag__add--form-container");
         createTagForm.classList.remove("hidden");
-        console.log(event);
     },
 
     showRemoveTagForm: (event) => {

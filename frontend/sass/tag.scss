@@ -14,10 +14,12 @@
     padding: 2px 0.4em;
     border-radius: 5px;
     @include mixins.center-element;
+    width: auto;
 }
 
 .tag__name{
     color: black;
+    font-size: 0.7rem;
 }
 
 .card__button--delete{
@@ -38,11 +40,12 @@
     transform: translate(-50%, -50%);
     z-index: 10;
     background-color: white;
-    width: 40%;
-    height: 40%;
+    width: 40em;
+    height: 22em;
     border: solid 3px black;
     border-radius: 5px;
 }
+
 
 .tag__form--title{
     font-size: 2rem;
@@ -86,8 +89,8 @@
     transform: translate(-50%, -50%);
     z-index: 10;
     background-color: white;
-    width: 40%;
-    height: 40%;
+    width: 40em;
+    height: 22em;
     border: solid 3px black;
     border-radius: 5px;
 }
@@ -115,6 +118,7 @@
 .tag__assign--input{
     margin: 4em 0 3em 0;
     font-size: 1.2rem;
+    
 }
 
 .patch__tag{
@@ -145,6 +149,7 @@
     font-weight: bold;
     border-radius: 5px;
     margin-left: 0.5em;
+    font-size: 1rem;
 }
 
 .delete__tag--form{

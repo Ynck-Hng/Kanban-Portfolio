@@ -33,19 +33,19 @@ const listContainer = document.querySelector(".main__container--lists");
 const listModule = {
 
     insertListInHtml: (listData) => {
-        const listsContainer = document.querySelector(".main__container--lists");
         const listClone = document.importNode(listTemplate.content, true);
         listClone.querySelector(".list__container").dataset.listId = listData.id;
-
+        
         listClone.querySelector("h2").textContent = listData.name;
         listClone.querySelector("h2").addEventListener("dblclick", listModule.showPatchList);
-
+        
         listClone.querySelector(".patch__list--name").addEventListener("submit", listModule.patchList);
         listClone.querySelector("input[name='name']").addEventListener("blur", listModule.hidePatchList);
-
+        
         listClone.querySelector(".list__header--create").addEventListener("click", cardModule.showCreateCardForm);
         listClone.querySelector(".list__header--delete").addEventListener("click", listModule.deleteList);
-
+        
+        const listsContainer = document.querySelector(".main__container--lists");
         Sortable.create(listsContainer, {
             group: "list",
             draggable: ".list__container",
@@ -180,7 +180,7 @@ const listModule = {
             allLists.forEach(async (list, index) => {
                 const formData = new FormData();
                 const listId = list.dataset.listId;
-                formData.append("position", index);
+                formData.append("position", index + 1);
                 
                 const response = await fetch(`${utilsModule.base_url}/lists/${listId}`, {
                     method: "PATCH",

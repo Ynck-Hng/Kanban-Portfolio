@@ -1,0 +1,15 @@
+@media screen and (max-width: 768px){
+    html{
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    html{
+        font-size: 8px;
+    }
+
+    .tag__color--input{
+        width: 20px;
+    }
+}

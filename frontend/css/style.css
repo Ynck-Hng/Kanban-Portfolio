@@ -80,7 +80,7 @@ img {
 
 header {
   padding: 1em 1em;
-  border: solid 1px lightgray;
+  border-bottom: solid 1px lightgray;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -136,7 +136,7 @@ main {
   width: 100%;
   min-height: 100vh;
   padding: 1em 0;
-  background-color: red;
+  background-image: linear-gradient(white, gray);
   position: relative;
   overflow: auto;
   overflow-y: hidden;
@@ -147,6 +147,7 @@ main {
   white-space: nowrap;
   position: absolute;
   left: 0;
+  width: 100%;
 }
 
 .list__container {
@@ -168,7 +169,8 @@ main {
   justify-content: space-between;
   padding: 0 1em;
   position: relative;
-  background-color: orange;
+  background-color: lightblue;
+  color: white;
 }
 
 .list__buttons {
@@ -182,7 +184,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 0.2em 0.4em;
-  background-color: lightblue;
+  background-color: darkblue;
   font-weight: bold;
   border-radius: 5px;
   margin-right: 5px;
@@ -223,8 +225,8 @@ main {
   transform: translate(-50%, -50%);
   z-index: 10;
   background-color: white;
-  width: 40%;
-  height: 40%;
+  width: 40em;
+  height: 22em;
   border: solid 3px black;
   border-radius: 5px;
 }
@@ -251,6 +253,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 1em 1.5em;
+  font-size: 1rem;
   font-weight: bold;
   border-radius: 5px;
 }
@@ -344,8 +347,8 @@ main {
   transform: translate(-50%, -50%);
   z-index: 10;
   background-color: white;
-  width: 40%;
-  height: 40%;
+  width: 40em;
+  height: 22rem;
   border: solid 3px black;
   border-radius: 5px;
 }
@@ -460,10 +463,12 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto;
 }
 
 .tag__name {
   color: black;
+  font-size: 0.7rem;
 }
 
 .card__button--delete {
@@ -488,8 +493,8 @@ main {
   transform: translate(-50%, -50%);
   z-index: 10;
   background-color: white;
-  width: 40%;
-  height: 40%;
+  width: 40em;
+  height: 22em;
   border: solid 3px black;
   border-radius: 5px;
 }
@@ -536,8 +541,8 @@ main {
   transform: translate(-50%, -50%);
   z-index: 10;
   background-color: white;
-  width: 40%;
-  height: 40%;
+  width: 40em;
+  height: 22em;
   border: solid 3px black;
   border-radius: 5px;
 }
@@ -603,6 +608,7 @@ main {
   font-weight: bold;
   border-radius: 5px;
   margin-left: 0.5em;
+  font-size: 1rem;
 }
 
 .tag__edit--buttons-container {
@@ -638,6 +644,46 @@ footer {
   justify-content: center;
   position: relative;
   bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 425px) {
+  html {
+    font-size: 8px;
+  }
+  .tag__color--input {
+    width: 20px;
+  }
+}
+@keyframes slideIn {
+  0% {
+    top: -10%;
+  }
+  70% {
+    top: 60%;
+  }
+  80% {
+    top: 55%;
+  }
+  82% {
+    top: 54%;
+  }
+  85% {
+    top: 53%;
+  }
+  92% {
+    top: 51%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+.slideIn {
+  animation: 1s ease-in-out 0s slideIn;
 }
 
 /*# sourceMappingURL=style.css.map */

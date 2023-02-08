@@ -1,0 +1,33 @@
+@keyframes slideIn {
+    0% {
+        top: -10%;
+    }
+
+    70% {
+        top: 60%;
+    }
+
+    80%{
+        top: 55%;
+    }
+
+    82%{
+        top: 54%;
+    }
+
+    85%{
+        top: 53%;
+    }
+
+    92%{
+        top: 51%;
+    }
+
+    100%{
+        top: 50%;
+    }
+}
+
+.slideIn{
+    animation: 1s ease-in-out 0s slideIn;
+}

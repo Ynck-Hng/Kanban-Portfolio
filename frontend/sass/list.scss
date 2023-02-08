@@ -17,7 +17,8 @@
     justify-content: space-between;
     padding: 0 1em;
     position: relative;
-    background-color: orange;
+    background-color: lightblue;
+    color: white;
 }
 
 .list__buttons{
@@ -27,7 +28,7 @@
 .list__header--create{
     @include mixins.center-element;
     padding: 0.2em 0.4em;
-    background-color: lightblue;
+    background-color: darkblue;
     font-weight: bold;
     border-radius: 5px;
     margin-right: 5px;
@@ -62,8 +63,8 @@
     transform: translate(-50%, -50%);
     z-index: 10;
     background-color: white;
-    width: 40%;
-    height: 40%;
+    width: 40em;
+    height: 22em;
     border: solid 3px black;
     border-radius: 5px;
 }
@@ -88,6 +89,7 @@
     color: white;
     @include mixins.center-element;
     padding: 1em 1.5em;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 5px;
 }
