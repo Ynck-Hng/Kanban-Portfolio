@@ -5,13 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js" defer></script>
     <script src="./js/utils.js" defer></script>
     <script src="./js/app.js" defer></script>
     <script src="./js/tagModule.js" defer></script>
     <script src="./js/cardModule.js" defer></script>
     <script src="./js/listModule.js" defer></script>
-    <title>Document</title>
+    <title> Kanban - Portfolio </title>
 </head>
 <body>
 
@@ -19,19 +23,22 @@
         <header>
           
             <div class="header__title--container">
-                <img src="./img/color-palette.png">
-                <h2 class="header__title">Kanban</h2>
+                <img src="./img/kanban-icon.png">
+                <div class="title__container">
+                    <h2 class="header__title">Kanban</h2>
+                    <a a href="https://github.com/Ynck-Hng" target="_blank" class="header__subtitle"> Github : Ynck-Hng </a>
+                </div>
             </div>
             
             <div class="header__buttons">
                 <div class="header__list">
-                    <span class="button__list--title button__title"> Créer une liste </span><a href="#" class="create__list--button"> + </a>
+                    <span class="button__list--title button__title"> Créer une liste </span><a href="#" class="create__list--button"> ＋ </a>
                 </div>
                 <div class="header__tag--add">
-                    <span class="button__tag--title button__title"> Créer un tag</span><a href="#" class="create__tag--button"> + </a>
+                    <span class="button__tag--title button__title"> Créer un tag</span><a href="#" class="create__tag--button"> ＋ </a>
                 </div>
                 <div class="header__tag--remove">
-                    <span class="button__tag--title button__title"> Supprimer un tag</span><a href="#" class="remove__tag--button"> - </a>
+                    <span class="button__tag--title button__title"> Supprimer un tag</span><a href="#" class="remove__tag--button"> － </a>
                 </div>
             </div>
         </header>
@@ -100,7 +107,6 @@
             </form>
         </div>
 
-       <!-- <footer> Ynck-Hng Github </footer> -->
     </div>
 </body>
 </html>

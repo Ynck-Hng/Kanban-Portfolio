@@ -45,7 +45,7 @@ const tagModule = {
         cardTagContainer.append(tagClone);
 
         const parentList = document.querySelector(`[data-list-id="${cardData.list_id}"]`);
-        listModule.listHeightCheckerCardAdd(parentList);
+        listModule.listHeightCheckerElementAdd(parentList);
     },
 
     insertTagOptionsInAssignForm: (tagData) => {
@@ -134,11 +134,14 @@ const tagModule = {
     showAddTagToCardForm: (event) => {
         event.preventDefault();
         document.querySelector(".modal__background").classList.remove("hidden");
-        const formContainer = document.querySelector(".tag__assign--form-container");
-        formContainer.classList.remove("hidden");
         const parentCard = event.target.closest(".card");
         const parentCardId = parentCard.dataset.cardId;
         const addTagToCardForm = document.querySelector(".assign__tag--form");
+
+        const formContainer = document.querySelector(".tag__assign--form-container");
+        formContainer.classList.remove("hidden");
+        formContainer.querySelector("h2").textContent = `Ajouter une catégorie à "${parentCard.querySelector("h3").textContent}"`;
+
         addTagToCardForm.querySelector("input[name='card_id'").value = parentCardId;
         
         const currentTagOptions = addTagToCardForm.querySelectorAll("option");
@@ -188,8 +191,7 @@ const tagModule = {
             }
             tag.querySelector(".patch__tag--form-container").classList.add("hidden");
             tag.querySelector("input[name='name'").textContent = "";
-            //tag.querySelector(".patch__tag--form-container").classList.add("hidden");
-            //tag.querySelector("input[name='name']").value = "";
+            tag.querySelector("input[name='name']").value = "";
         }catch(error){
             console.error(error.message);
         }
@@ -198,23 +200,35 @@ const tagModule = {
     deleteTag: async(event) => {
         event.preventDefault();
         const targetTagId = event.target.querySelector("select[name='id']").value;
-        console.log(targetTagId);
-        try{
+        if(window.confirm("Supprimer cette catégorie l'enlèvera de toutes les autres cartes, souhaitez-vous continuer ?")){
+            try{  
+                const response = await fetch(`${utilsModule.base_url}/tags/${targetTagId}`, {
+                    method: "DELETE",
+                })
+                
+                const json = await response.json();
+                
+                if(!response.ok) throw alert(json);
+                
+                event.target.closest(".tag__remove--form-container").classList.add("hidden");
+                
+                event.target.reset();
+                document.querySelector(".modal__background").classList.add("hidden");
 
-            const response = await fetch(`${utilsModule.base_url}/tags/${targetTagId}`, {
-                method: "DELETE",
-            })
-
-            const json = await response.json();
-
-            if(!response.ok) throw alert(json);
-
+                const allTags = document.querySelectorAll(`[data-tag-id='${targetTagId}']`);
+                for(let tag of allTags){
+                    const parentCard = tag.closest(".card");
+                    const parentList = parentCard.closest(".list__container");
+                    listModule.listHeightCheckerElementDragAway(parentList, parentCard);
+                    tag.remove();
+                }
+            }catch(error){
+                console.error(error.message);
+            }
+        } else {
             event.target.closest(".tag__remove--form-container").classList.add("hidden");
-            
             event.target.reset();
             document.querySelector(".modal__background").classList.add("hidden");
-        }catch(error){
-            console.error(error.message);
         }
     }
 

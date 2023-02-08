@@ -107,7 +107,7 @@
 }
 
 .tag__assign--title{
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     border-bottom: solid 1px lightgray;
     width: 100%;
@@ -176,7 +176,6 @@
     background-color: greenyellow;
     color: white;
     @include mixins.center-element;
-    border: lightgrey;
     border: solid 1px lightgrey;
 
 }

@@ -6,7 +6,7 @@ cardTemplate.innerHTML = `
     <section class="card">
         <div class="tag__container">
            <div class="card__button--add-tag">
-                <a href="#"> + </a>
+                <a href="#"> ﹢ </a>
             </div>
         </div>
 
@@ -65,17 +65,18 @@ const cardModule = {
         const listCardContainer = parentList.querySelector(".cards__container");
 
         listCardContainer.append(cardClone);
-        listModule.listHeightCheckerCardAdd(parentList);
+        listModule.listHeightCheckerElementAdd(parentList);
     },
 
     // Creating Card
 
     showCreateCardForm: (event) => {
         event.preventDefault();
-        const createCardForm = document.querySelector(".card__form--container");
-        createCardForm.classList.remove("hidden");
         const parentList = event.target.closest(".list__container");
         const parentListId = parentList.dataset.listId;
+        const createCardForm = document.querySelector(".card__form--container");
+        createCardForm.classList.remove("hidden");
+        createCardForm.querySelector("h2").textContent = `Ajouter une carte à "${parentList.querySelector("h2").textContent}"`;
         createCardForm.querySelector("input[name='list_id']").value = parentListId;
         document.querySelector(".modal__background").classList.remove("hidden");
     },
@@ -164,7 +165,7 @@ const cardModule = {
             if(!response.ok) throw alert(json);
 
             event.target.closest(".card").remove();
-            listModule.listHeightCheckerCardRemove(parentList);
+            listModule.listHeightCheckerElementRemove(parentList);
         }catch(error){
             console.error(error.message);
         }
@@ -204,7 +205,8 @@ const cardModule = {
         event.preventDefault();
         const tag = event.target.closest(".tag");
         const tagId = tag.dataset.tagId;
-        const parentCardId = event.target.closest(".card").dataset.cardId;
+        const parentCard = event.target.closest(".card");
+        const parentCardId = parentCard.dataset.cardId;
         try{
             const response = await fetch(`${utilsModule.base_url}/cards/${parentCardId}/tags/${tagId}`, {
                 method: "DELETE"
@@ -213,6 +215,8 @@ const cardModule = {
             const json = await response.json();
 
             if(!response.ok) throw alert(json);
+            const parentList = event.target.closest(".list__container");
+            listModule.listHeightCheckerElementDragAway(parentList, parentCard);
             tag.remove();
         }catch(error){
             console.log(error);
@@ -248,7 +252,7 @@ const cardModule = {
                 const json = await response.json();
 
                 if(!response.ok) throw alert(json);
-                listModule.listHeightCheckerCardAdd(nextListContainer);
+                listModule.listHeightCheckerElementAdd(nextListContainer);
             });
 
             // previous list
@@ -266,8 +270,8 @@ const cardModule = {
                 const json = await response.json();
 
                 if(!response.ok) throw alert(json);
-                listModule.listHeightCheckerCardAdd(previousListContainer);
-
+                
+                listModule.listHeightCheckerElementDragAway(previousListContainer, card);
             })
         }catch(error){
             console.log(error);

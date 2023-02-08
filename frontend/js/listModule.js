@@ -7,14 +7,14 @@ listTemplate.innerHTML = `
                         <div class="list__header--title">
                             <h2> Title list 1</h2>
                             <form class="patch__list--name hidden">
-                                <input type="text" name="name" placeholder="Nom...">
+                                <input type="text" name="name" class="patch__list--input" placeholder="Nom...">
                             </form>
                         </div>
                         
                         
                         <div class="list__buttons">
                             <div class="list__header--create">
-                                <a href="#"> + </a>
+                                <a href="#"> ﹢ </a>
                             </div>
                             <div class="list__header--delete">
                                 <a href="#"> x </a>
@@ -159,20 +159,27 @@ const listModule = {
 
     // list height checker
 
-    listHeightCheckerCardAdd: (list) => {
-        if(list.offsetHeight > window.innerHeight){
-            list.style.height = `${window.innerHeight - 75}px`;
+    listHeightCheckerElementAdd: (list) => {
+        if(list.offsetHeight > window.innerHeight - 75){
+            list.style.height = `${window.innerHeight - 60}px`;
             list.classList.add("overflow-y");
         }
     },
 
-    listHeightCheckerCardRemove: (list) => {
-        if(list.offsetHeight < window.innerHeight){
+    listHeightCheckerElementRemove: (list) => {
+        if(list.offsetHeight < window.innerHeight - 75){
             list.style.height = "";
             list.classList.remove("overflow-y");
         }
     },
 
+    listHeightCheckerElementDragAway: (list, element) => {
+        const newListHeight = list.offsetHeight - element.offsetHeight;
+        if(newListHeight < window.innerHeight - 75){
+            list.style.height = "";
+            list.classList.remove("overflow-y");
+        }
+    },
     // Drag list
 
     dragListOnEnd: () => {
@@ -191,7 +198,6 @@ const listModule = {
                 const json = await response.json();
 
                 if(!response.ok) throw alert(json);
-                console.log("c'est bon");
             })
         }catch(error){
             console.log(error);

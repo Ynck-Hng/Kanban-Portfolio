@@ -10,12 +10,16 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .header__title--container{
     display: flex;
     align-items: center;
+}
+
+.title__container{
+    @include mixins.center-element;
+    flex-direction: column;
 }
 
 .header__title{
@@ -24,13 +28,19 @@ header{
     margin-left: 0.5em;
 }
 
+.header__subtitle{
+    font-size: 0.8rem;
+    color: black;
+    text-decoration: underline;
+}
+
 .header__buttons{
     @include mixins.center-element;
 }
 
 .create__list--button{
     background-color: greenyellow;
-    padding: 0.8em 1em;
+    padding: 0.8em 0.8em;
     font-weight: bold;
     border-radius: 5px;
     margin-right: 1em;

@@ -50,7 +50,7 @@
 .card__button--add-tag{
     @include mixins.center-element;
     background-color: pink;
-    padding: 0.05em 0.3em;
+    padding: 0.1em 0.1em;
     color: white;
     font-weight: bold;
     border-radius: 5px;
@@ -72,7 +72,7 @@
 }
 
 .card__form--title{
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     border-bottom: solid 1px lightgray;
     width: 100%;

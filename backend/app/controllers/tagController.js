@@ -73,7 +73,6 @@ const tagController = {
         }
 
         const updatedTag = await findTag.update({name, color});
-        console.log(updatedTag);
         res.status(200).json(updatedTag);
     }),
 
