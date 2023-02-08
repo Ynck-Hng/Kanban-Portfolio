@@ -2,7 +2,7 @@ const listTemplate = document.createElement("template");
 
 listTemplate.innerHTML = `
  <!-- Lists here -->
-                <article class="list__container" data-list-id="">
+                <article class="list__container">
                     <div class="list__header">
                         <div class="list__header--title">
                             <h2> Title list 1</h2>
@@ -46,6 +46,23 @@ const listModule = {
         listClone.querySelector(".list__header--create").addEventListener("click", cardModule.showCreateCardForm);
         listClone.querySelector(".list__header--delete").addEventListener("click", listModule.deleteList);
 
+        Sortable.create(listsContainer, {
+            group: "list",
+            draggable: ".list__container",
+            animation: 100,
+            onEnd: listModule.dragListOnEnd,
+            scroll: true,
+        })
+
+        const listCardContainer = listClone.querySelector(".cards__container");
+            Sortable.create(listCardContainer, {
+            group: "card",
+            draggable: ".card",
+            animation: 100,
+            onEnd: cardModule.dragCardOnEnd,
+            scroll: true,
+        })
+
         listContainer.append(listClone);
     },
 
@@ -58,13 +75,7 @@ const listModule = {
 
     },
 
-
-
     // CRUD
-
-    findAllLists: async() => {
-        
-    },
 
     createList: async(event) => {
         event.preventDefault();
@@ -159,5 +170,32 @@ const listModule = {
             list.style.height = "";
             list.classList.remove("overflow-y");
         }
-    }
+    },
+
+    // Drag list
+
+    dragListOnEnd: () => {
+        const allLists = document.querySelectorAll(".list__container");
+        try{
+            allLists.forEach(async (list, index) => {
+                const formData = new FormData();
+                const listId = list.dataset.listId;
+                formData.append("position", index);
+                
+                const response = await fetch(`${utilsModule.base_url}/lists/${listId}`, {
+                    method: "PATCH",
+                    body: formData
+                })
+
+                const json = await response.json();
+
+                if(!response.ok) throw alert(json);
+                console.log("c'est bon");
+            })
+        }catch(error){
+            console.log(error);
+        }
+    },
+
+    
 }

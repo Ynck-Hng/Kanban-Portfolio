@@ -51,7 +51,7 @@ const cardController = {
 
     updateOneCard: errorCatcher(async (req,res) => {
         const cardId = req.params.cardId;
-        let {name, color, list_id} = req.body;
+        let {name, color, position, list_id} = req.body;
 
         const findCard = await Card.findByPk(cardId);
 
@@ -67,11 +67,15 @@ const cardController = {
             color = findCard.color;
         }
 
+        if(!position){
+            position = findCard.position;
+        }
+
         if(!list_id){
             list_id = findCard.list_id;
         }
 
-        const updatedCard = await findCard.update({name, color, list_id});
+        const updatedCard = await findCard.update({name, color, position, list_id});
         
         res.status(200).json(updatedCard);
     }),

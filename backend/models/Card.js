@@ -11,6 +11,9 @@ Card.init({
     color: {
         type: Sequelize.STRING,
     },
+    position: {
+        type: Sequelize.INTEGER,
+    },
     list_id:{
         type: Sequelize.INTEGER,
         unique: true,

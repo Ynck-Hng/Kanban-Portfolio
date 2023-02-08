@@ -52,7 +52,7 @@ const listController = {
 
     updateOneList: errorCatcher(async (req,res) => {
         const listId = req.params.listId;
-        const {name} = req.body;
+        let {name, position} = req.body;
 
         const findList = await List.findByPk(listId);
 
@@ -64,8 +64,11 @@ const listController = {
             name = findList.name;
         }
 
-        const updatedList = await findList.update({name});
+        if(!position){
+            position = findList.position;
+        }
 
+        const updatedList = await findList.update({name, position});
         res.status(200).json(updatedList);
     }),
 

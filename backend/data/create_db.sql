@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS "list", "card", "tag", "card_has_tag";
 CREATE TABLE IF NOT EXISTS "list"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" VARCHAR(50) NOT NULL,
-    "position" INT,
+    "position" INT DEFAULT currval('list_id_seq'),
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ DEFAULT NOW()
 );
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS "card"(
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" VARCHAR(50) NOT NULL,
     "color" VARCHAR(50) DEFAULT '#000000',
-    "position" INT,
+    "position" INT DEFAULT currval('card_id_seq'),
     "list_id" INT REFERENCES "list"("id") ON DELETE CASCADE,
     "created_at" TIMESTAMPTZ DEFAULT NOW(),
     "updated_at" TIMESTAMPTZ DEFAULT NOW()

@@ -8,6 +8,9 @@ List.init({
         type: Sequelize.STRING,
         allowNull: false,
     },
+    position: {
+        type: Sequelize.INTEGER,
+    },
     created_at: Sequelize.DATE,
     updated_at: Sequelize.DATE,
 }, {

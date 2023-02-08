@@ -61,7 +61,9 @@ const cardModule = {
         cardClone.querySelector(".card").style.borderColor = cardData.color;
 
         const parentList = document.querySelector(`[data-list-id="${cardData.list_id}"`);
+        
         const listCardContainer = parentList.querySelector(".cards__container");
+
         listCardContainer.append(cardClone);
         listModule.listHeightCheckerCardAdd(parentList);
     },
@@ -208,6 +210,18 @@ const cardModule = {
 
             if(!response.ok) throw alert(json);
             tag.remove();
+        }catch(error){
+            console.log(error);
+        }
+    },
+
+    // Drag card
+
+    dragCardOnEnd: (event) => {
+        const nextListContainer = event.to;
+        const previousListContainer = event.from;
+        try{
+            
         }catch(error){
             console.log(error);
         }
