@@ -21,7 +21,7 @@ cardTemplate.innerHTML = `
                             <input type="color" name="color" class="card__color--edit" value="#ff0000">
                         </div>
                         <div class="button__container">
-                            <button type="submit" class="card__submit--edit"> Valider </button>
+                            <button type="submit" class="card__submit--edit"> ✔ </button>
                             <button type="button" class="card__cancel--edit"> Annuler </button>
                         </div>
                     </form>

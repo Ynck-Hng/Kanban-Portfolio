@@ -11,7 +11,8 @@ tagTemplate.innerHTML = `
         <form class="patch__tag">
             <input type="text" name="name" class="tag__patch--name-input">
             <input type="color" name="color" class="tag__patch--color-input">
-            <button type="submit" > ✔ </button>
+            <button type="submit" class="tag__submit--edit"> ✔ </button>
+            <button type="button" class="tag__cancel--edit" > ✕ </button>
         </form>
     </div>
 </section>
@@ -31,7 +32,12 @@ const tagModule = {
         tagClone.querySelector(".tag").style.borderColor = tagData.color;
 
         tagClone.querySelector(".tag__name").textContent = tagData.name;
+        tagClone.querySelector(".tag__name").addEventListener("dblclick", tagModule.showPatchTagForm);
         tagClone.querySelector(".tag__button--delete").addEventListener("click", cardModule.removeTagFromCard);
+
+        tagClone.querySelector(".patch__tag").addEventListener("submit", tagModule.patchTag);
+        tagClone.querySelector("input[name='color']").value = tagData.color;
+        tagClone.querySelector(".tag__cancel--edit").addEventListener("click", tagModule.hidePatchTagForm);
 
         const parentCard = document.querySelector(`[data-card-id ="${cardData.id}"]`);
         const cardTagContainer = parentCard.querySelector(".tag__container");
@@ -67,6 +73,7 @@ const tagModule = {
         event.preventDefault();
         const createTagForm = document.querySelector(".tag__add--form-container");
         createTagForm.classList.remove("hidden");
+        console.log(event);
     },
 
     showRemoveTagForm: (event) => {
@@ -112,9 +119,10 @@ const tagModule = {
 
             const json = await response.json();
 
-            if(!response.ok) throw json;
+            if(!response.ok) throw alert(json);
 
-            console.log("c'est bon");
+            event.target.closest(".tag__add--form-container").classList.add("hidden");
+            event.target.reset();
         }catch(error){
             console.error(error.message);
         }
@@ -136,9 +144,48 @@ const tagModule = {
         tagModule.findAllTags();
     },
 
-    patchTag: async() => {
-        try{
+    showPatchTagForm: (event) => {
+        event.preventDefault();
+        const selectedTag = event.target.closest(".tag");
+        selectedTag.querySelector(".tag__content").classList.add("hidden");
+        const form = selectedTag.querySelector(".patch__tag--form-container");
+        form.classList.remove("hidden");
+    },
 
+    hidePatchTagForm: (event) => {
+        event.preventDefault();
+        const tag = event.target.closest(".tag");
+        tag.querySelector(".patch__tag--form-container").classList.add("hidden");
+        tag.querySelector(".tag__content").classList.remove("hidden");
+        tag.querySelector("input[name='name']").value = "";
+    },
+
+    patchTag: async(event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const tag = event.target.closest(".tag");
+        const currentTagId = tag.dataset.tagId;
+        try{
+            const response = await fetch(`${utilsModule.base_url}/tags/${currentTagId}`, {
+                method: "PATCH",
+                body: formData
+            })
+
+            const json = await response.json();
+
+            if(!response.ok) throw alert(json);
+
+            tag.querySelector(".tag__content").classList.remove("hidden");
+            const allTags = document.querySelectorAll(`[data-tag-id='${currentTagId}']`);
+            for(let tag of allTags){
+                let currentTag = tag.querySelector(".tag__name");
+                currentTag.textContent = json.name;
+                tag.style.borderColor = json.color;
+            }
+            tag.querySelector(".patch__tag--form-container").classList.add("hidden");
+            tag.querySelector("input[name='name'").textContent = "";
+            //tag.querySelector(".patch__tag--form-container").classList.add("hidden");
+            //tag.querySelector("input[name='name']").value = "";
         }catch(error){
             console.error(error.message);
         }

@@ -71,7 +71,7 @@ a {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 img {
@@ -428,6 +428,20 @@ main {
   overflow: hidden;
 }
 
+.card__submit--edit {
+  background-color: greenyellow;
+  color: white;
+  border: solid 1px lightgray;
+  cursor: pointer;
+}
+
+.card__cancel--edit {
+  background-color: red;
+  color: white;
+  border: solid 1px lightgray;
+  cursor: pointer;
+}
+
 .tag__container {
   display: flex;
   align-items: center;
@@ -589,6 +603,32 @@ main {
   font-weight: bold;
   border-radius: 5px;
   margin-left: 0.5em;
+}
+
+.tag__edit--buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag__submit--edit {
+  background-color: greenyellow;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: lightgrey;
+  border: solid 1px lightgrey;
+}
+
+.tag__cancel--edit {
+  color: white;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px lightgrey;
+  font-weight: bold;
 }
 
 footer {

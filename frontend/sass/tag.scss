@@ -162,3 +162,24 @@
 .tag__form--remove-close{
     @extend .tag__assign--close;
 }
+
+.tag__edit--buttons-container{
+    @include mixins.center-element;
+}
+
+.tag__submit--edit{
+    background-color: greenyellow;
+    color: white;
+    @include mixins.center-element;
+    border: lightgrey;
+    border: solid 1px lightgrey;
+
+}
+
+.tag__cancel--edit{
+    color: white;
+    background-color: red;
+    @include mixins.center-element;
+    border: solid 1px lightgrey;
+    font-weight: bold;
+}
