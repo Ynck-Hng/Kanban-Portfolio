@@ -13,7 +13,7 @@ Bienvenue sur ce projet Kanban ! Celui-ci a été réalisé en vu de mettre en a
   - **_Clean code_** :white_check_mark: 
   - Préparation de **_wireframes_**
   - Intégration d'une page web _responsive_ :white_check_mark: 
-  - Projet de type **_Single Page Application (SPA)_** lié à l'API :white_check_mark: 
+  - Projet de type **_Single Page Application (SPA)_** lié à une API :white_check_mark: 
   - Approche autodidacte en s'appuyant sur la documentation :white_check_mark: 
   
 - L'environnement technique de ce projet :
