@@ -14,7 +14,7 @@
   
 - :desktop_computer: [Constitution de l'API](#api) 
 
-- [Conclusion](#conclusion)
+- :confetti_ball: [Conclusion](#conclusion)
 ---
 # :wave: <a id="introduction"></a> Introduction
 ---
@@ -120,7 +120,7 @@ Tag: code_tag (INT), name (VARCHAR), color (VARCHAR), created_at (DATE), updated
 | `/tags/:tagId` | Renvoie une catégorie | <p align="center">:x:</p> | Met à jour une catégorie | <p align="center">:x:</p> | Supprime une catégorie |
 
 ----
-# :confetti_ball: <a id="conclusion"></a> <p align="center">Conclusion </p> :confetti_ball: 
+# <a id="conclusion"></a> <p align="center"> :confetti_ball: Conclusion :confetti_ball:  </p>
 
 Voilà qui conclut la présentation et la mise en marche de ce projet. Ce Kanban a été très instructif et amusant à concevoir du début à la fin, malgré les heures de formations intensives où il a fallu persévérer pour s'organiser afin de mener ce projet jusqu'au bout. 
 
