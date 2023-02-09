@@ -164,8 +164,8 @@ const cardModule = {
 
             if(!response.ok) throw alert(json);
 
+            listModule.listHeightCheckerElementDragAway(parentList, event.target.closest(".card"));
             event.target.closest(".card").remove();
-            listModule.listHeightCheckerElementRemove(parentList);
         }catch(error){
             console.error(error.message);
         }

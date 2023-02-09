@@ -166,13 +166,6 @@ const listModule = {
         }
     },
 
-    listHeightCheckerElementRemove: (list) => {
-        if(list.offsetHeight < window.innerHeight - 75){
-            list.style.height = "";
-            list.classList.remove("overflow-y");
-        }
-    },
-
     listHeightCheckerElementDragAway: (list, element) => {
         const newListHeight = list.offsetHeight - element.offsetHeight;
         if(newListHeight < window.innerHeight - 75){
