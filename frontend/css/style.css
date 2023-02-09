@@ -499,14 +499,12 @@ main {
   background-color: greenyellow;
   color: white;
   border: solid 1px lightgray;
-  cursor: pointer;
 }
 
 .card__cancel--edit {
   background-color: red;
   color: white;
   border: solid 1px lightgray;
-  cursor: pointer;
 }
 
 .tag__container {

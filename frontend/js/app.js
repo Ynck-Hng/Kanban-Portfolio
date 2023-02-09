@@ -61,7 +61,6 @@ const app = {
             console.error(error.message);
         }
     },
-
 }
 
 document.addEventListener("DOMContentLoaded", app.init);

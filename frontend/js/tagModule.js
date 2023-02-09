@@ -55,7 +55,6 @@ const tagModule = {
         tagOptionClone.querySelector("option").value = tagData.id;
         tagOptionClone.querySelector("option").textContent = tagData.name;
         
-
         tagOptionContainer.append(tagOptionClone);
     },
 
@@ -231,5 +230,4 @@ const tagModule = {
             document.querySelector(".modal__background").classList.add("hidden");
         }
     }
-
 }

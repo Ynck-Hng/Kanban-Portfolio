@@ -203,6 +203,4 @@ const listModule = {
             console.log(error);
         }
     },
-
-    
 }
