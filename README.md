@@ -1,7 +1,6 @@
 # <p align=center> :tada:  Kanban Project :tada:  </p> 
-
-# :memo: Sommaire :memo:
 ---
+# :memo: Sommaire :memo:
 
 - :wave: [Introduction](#introduction)
 
