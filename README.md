@@ -66,5 +66,5 @@ Bienvenue sur ce projet Kanban ! Celui-ci a été réalisé en vu de mettre en a
   5) Créez un fichier `.env` en vous appuyant sur le fichier _template_ `env_example`. Assurez-vous de remplacer `username`, `password` et `dbname` par vos appellations. **_Remarque : Si vous n'utilisez pas le `PORT = 3000`, allez dans le fichier `frontend/js/utils.js` puis modifiez la valeur du port de la propriété `base_url`_**
   6) Lancez le serveur de l'API avec `node index.js` / `nodemon index.js` / `node-dev index.js`
   7) Ouvrez le fichier `index.html` dans le dossier `frontend` dans votre navigateur
-  8) :tada Vous avez désormais accès à un Kanban depuis votre machine en locale ! :tada:
+  8) :tada: Vous avez désormais accès à un Kanban depuis votre machine en locale ! :tada:
   
