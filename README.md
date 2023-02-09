@@ -45,23 +45,26 @@ Bienvenue sur ce projet Kanban ! Celui-ci a été réalisé en vu de mettre en a
 # :rocket:  Comment lancer ce projet ?
 
   1) Clonez dans un premier temps ce répertoire GitHub
-  2) Assurez-vous d'avoir installé <a href="https://www.postgresql.org/download/" target="_blank"> PostgreSQL </a>
+  2) Assurez-vous d'avoir installé <a href="https://www.postgresql.org/download/" target="_blank"> PostgreSQL </a> <img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png" width="20px" height="20px">
   3) Installez les dépendances en vous plançant dans le dossier `backend` puis tapez `npm install` dans le terminal
   4) Créez la base de donnée avec les commandes suivantes :
-    1. `CREATE ROLE "name" WITH LOGIN PASSWORD 'password';`
-    2. `CREATE DATABASE "dbname" OWNER "name";`
-    3. Connectez vous à la base de donnée 
-      - Remarque : Vous pouvez appeler "name", 'password' et "dbname" si vous le souhaitez, mais rappelez-vous de leur appellation.
-    
-  5) Créez un fichier `.env` en vous 
   
-To start this project you will need to :
-
-- Clone this repo
-- Make a `.env` file following the `env_example` file
-- Install the dependencies in the `backend` folder
-- Create a new PostgreSQL database and import file `create_db.sql` following this route `backend/data/create_db.sql`
-- Start the API server by typing `node-dev index.js` or `nodemon index.js`
-- Open the `index.html` file in your browser
-
-And voilà !
+    a. `CREATE ROLE "username" WITH LOGIN PASSWORD 'password';`
+    
+    b. `CREATE DATABASE "dbname" OWNER "username";`
+    
+    c. Importez la base de donnée `psql -U "username" -d "dbname" -f ./data/create_db.sql;`
+    
+    d. Connectez vous à la base de donée `psql -U "username" -d "dbname";` puis entrez votre `password`
+    
+    e. Une fois connecté, entrez la commande `SELECT * FROM "list;`
+    
+    f. Si cela vous retourne un tableau avec des éléments à l'intérieur, féliciations vous avez importé la base de donnée !
+    
+    g. Sinon, répétez depuis l'étape C
+    
+  5) Créez un fichier `.env` en vous appuyant sur le fichier _template_ `env_example`. Assurez-vous de remplacer `username`, `password` et `dbname` par vos appellations. **_Remarque : Si vous n'utilisez pas le `PORT = 3000`, allez dans le fichier `frontend/js/utils.js` puis modifiez la valeur du port de la propriété `base_url`_**
+  6) Lancez le serveur de l'API avec `node index.js` / `nodemon index.js` / `node-dev index.js`
+  7) Ouvrez le fichier `index.html` dans le dossier `frontend` dans votre navigateur
+  8) :tada Vous avez désormais accès à un Kanban depuis votre machine en locale ! :tada:
+  
