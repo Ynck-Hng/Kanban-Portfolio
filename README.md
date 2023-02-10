@@ -16,7 +16,6 @@
 - :confetti_ball: [Conclusion](#conclusion)
 ---
 # :wave: <a id="introduction"></a> Introduction
----
 
 Bienvenue sur ce projet Kanban ! Celui-ci a été réalisé en vu de mettre en avant et consolider mes acquis depuis le début de la formation Fullstack JS (31/10/22).
 
