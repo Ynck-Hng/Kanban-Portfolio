@@ -108,14 +108,14 @@ Tag: code_tag (INT), name (VARCHAR), color (VARCHAR), created_at (DATE), updated
 # <a id="api"></a> :desktop_computer: Constitution de l'API
 |  Routes/Méthodes | GET | POST | PATCH | PUT | DELETE |
 |---|---|---|---|---|---|
-| `/lists` | Renvoie toutes les listes   | Ajoute une liste | <p align="center">:x:</p> | <p align="center">:x:</p> | <p align="center">:x:</p> |
-| `/lists/:listId` | Renvoie une liste  | <p align="center">:x:</p> | Met à jour une liste | <p align="center">:x:</p> | Supprime une liste |
-| `/cards` | Renvoie toutes les cartes  | Créé une carte | <p align="center">:x:</p>  | <p align="center">:x:</p> | <p align="center">:x:</p> |
-| `/cards/:cardId` | Renvoie une carte | <p align="center">:x:</p> | Met à jour une carte  | <p align="center">:x:</p> | Supprime une carte |
-| `/cards/:cardId/tags`  | <p align="center">:x:</p> | Assigne une catégorie à une carte  | <p align="center">:x:</p> | <p align="center">:x:</p>  | <p align="center">:x:</p> |
-| `/cards/:cardId/tags/:tagId`  | <p align="center">:x:</p> | <p align="center">:x:</p> | <p align="center">:x:</p> | <p align="center">:x:</p> | Retire une catégorie à une carte |
-| `/tags`  | Renvoie toutes les catégories  | Créé une catégorie  | <p align="center">:x:</p>  | <p align="center">:x:</p> | <p align="center">:x:</p> |
-| `/tags/:tagId` | Renvoie une catégorie | <p align="center">:x:</p> | Met à jour une catégorie | <p align="center">:x:</p> | Supprime une catégorie |
+| `/lists` | Renvoie toutes les listes   | Ajoute une liste | <div align="center">:x:</div> | <div align="center">:x:</div> | <div align="center">:x:</div> |
+| `/lists/:listId` | Renvoie une liste  | <div align="center">:x:</div> | Met à jour une liste | <div align="center">:x:</div> | Supprime une liste |
+| `/cards` | Renvoie toutes les cartes  | Créé une carte | <div align="center">:x:</div>  | <div align="center">:x:</div> | <div align="center">:x:</div> |
+| `/cards/:cardId` | Renvoie une carte | <div align="center">:x:</div> | Met à jour une carte  | <div align="center">:x:</div> | Supprime une carte |
+| `/cards/:cardId/tags`  | <div align="center">:x:</div> | Assigne une catégorie à une carte  | <div align="center">:x:</div> | <p align="center">:x:</div>  | <div align="center">:x:</div> |
+| `/cards/:cardId/tags/:tagId`  | <div align="center">:x:</div> | <div align="center">:x:</div> | <div align="center">:x:</div> | <div align="center">:x:</div> | Retire une catégorie à une carte |
+| `/tags`  | Renvoie toutes les catégories  | Créé une catégorie  | <div align="center">:x:</div>  | <div align="center">:x:</div> | <div align="center">:x:</div> |
+| `/tags/:tagId` | Renvoie une catégorie | <div align="center">:x:</div> | Met à jour une catégorie | <div align="center">:x:</div> | Supprime une catégorie |
 
 ----
 # <a id="conclusion"></a> <p align="center"> :confetti_ball: Conclusion :confetti_ball:  </p>
