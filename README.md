@@ -38,7 +38,7 @@ Bienvenue sur ce projet Kanban ! Celui-ci a été réalisé en vu de mettre en a
    
    - **Back-end** :
    
-      - NodeJS & Express <img src="https://cdn-icons-png.flaticon.com/512/919/919825.png" width="20px" height="20px"> <img src="https://user-images.githubusercontent.com/115977341/213268782-c620c3a9-f321-4e08-90bd-d545336be168.png" width="20px" height="20px">
+      - NodeJS & Express <img src="https://user-images.githubusercontent.com/115977341/213268794-13c5eba2-47b4-4e6b-bd35-e680dc25d850.png" width="20px" height="20px"> <img src="https://user-images.githubusercontent.com/115977341/213268782-c620c3a9-f321-4e08-90bd-d545336be168.png" width="20px" height="20px">
       - PostgreSQL <img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png" width="20px" height="20px">
       - Sequelize <img src="https://sequelize.org/img/logo.svg" width="20px" height="20px">
       
