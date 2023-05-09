@@ -9,7 +9,9 @@ const {errorCollector, notFound} = require("./app/middlewares/errorHandlers");
 const {bodySanitizer} = require("./app/middlewares/bodySanitizer");
 const router = require("./app/router/router");
 
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000/"    
+}));
 app.use(bodyParser.none());
 app.use(express.urlencoded({extended: true}));
 app.use(bodySanitizer);
