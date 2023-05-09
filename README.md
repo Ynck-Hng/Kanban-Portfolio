@@ -88,7 +88,7 @@ e. SELECT * FROM "list";
   
 # <a id="mcd"></a> :art: MCD de la base de donnée
 
-![image](https://github.com/Ynck-Hng/Kanban-Portfolio/assets/115977341/e2480ecc-e1e3-45c3-b010-3f456b793541)
+![image](https://github.com/Ynck-Hng/Kanban-Portfolio/assets/115977341/7e6d2bc3-155e-40a0-8f1c-fc46c140e178)
 
 ### <a id="mocodo"></a> • Code Mocodo
 
