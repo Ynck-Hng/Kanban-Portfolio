@@ -88,13 +88,13 @@ e. SELECT * FROM "list";
   
 # <a id="mcd"></a> :art: MCD de la base de donnée
 
-![image](https://github.com/Ynck-Hng/Kanban-Portfolio/assets/115977341/3ee82168-2585-40be-ba99-3886f0b653cb)
+![image](https://github.com/Ynck-Hng/Kanban-Portfolio/assets/115977341/e2480ecc-e1e3-45c3-b010-3f456b793541)
 
 ### <a id="mocodo"></a> • Code Mocodo
 
 ```
 List: code_list (INT), name (VARCHAR), position (INT), created_at (DATE), updated_at (DATE)
-contain, 11 Card, 1N List
+contain, 11 Card, 0N List
 Card: code_card (INT), name (VARCHAR), color(VARCHAR), position (INT), created_at (DATE), updated_at (DATE)
 :
 
